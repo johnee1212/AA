@@ -42,13 +42,14 @@
     display: flex; align-items: center; justify-content: space-between;
     padding: 10px 56px;
     box-shadow: 0 2px 16px rgba(46,64,87,0.09);
+    min-height: 64px;
   }
-  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
   .nav-logo img { height: 46px; width: auto; }
   .nav-logo-text { line-height: 1.25; }
   .nav-logo-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--navy); display: block; }
   .nav-logo-sub { font-size: 0.65rem; color: var(--mid); letter-spacing: 0.08em; text-transform: uppercase; }
-  .nav-right { display: flex; align-items: center; gap: 20px; }
+  .nav-right { display: flex; align-items: center; gap: 20px; flex-shrink: 0; }
   .nav-link { font-size: 0.85rem; color: var(--mid); text-decoration: none; font-weight: 600; }
   .nav-link:hover { color: var(--navy); }
   .nav-cta {
@@ -57,6 +58,7 @@
     font-size: 0.88rem; font-weight: 700;
     box-shadow: 0 3px 12px rgba(196,87,42,0.35);
     transition: background 0.2s, transform 0.15s;
+    white-space: nowrap;
   }
   .nav-cta:hover { background: var(--orange-lt); transform: translateY(-1px); }
 
@@ -68,7 +70,8 @@
     grid-template-columns: 1fr 420px;
     align-items: center;
     gap: 70px;
-    padding: 130px 80px 90px;
+    padding: 100px 80px 90px;
+    margin-top: 64px;
     position: relative;
     overflow: hidden;
   }
@@ -350,8 +353,11 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 960px) {
-    nav { padding: 10px 20px; }
-    .hero { grid-template-columns: 1fr; padding: 140px 32px 60px; text-align: center; gap: 50px; }
+    nav { padding: 8px 16px; min-height: 60px; }
+    .nav-logo img { height: 36px; }
+    .nav-logo-name { font-size: 0.9rem; }
+    .nav-cta { padding: 8px 16px; font-size: 0.82rem; }
+    .hero { grid-template-columns: 1fr; padding: 80px 32px 60px; margin-top: 60px; text-align: center; gap: 50px; }
     .hero-sub { margin: 0 auto 40px; }
     .hero-btns { justify-content: center; }
     .hero-proof { justify-content: center; }
@@ -443,8 +449,8 @@
     </div>
   </a>
   <div class="nav-right">
-    <a href="#what-inside" class="nav-link">What's Inside</a>
-    <a href="#get-book" class="nav-cta">Get the Book →</a>
+    <a href="whats-inside.html" class="nav-link">What's Inside</a>
+    <a href="https://adoptionacademy.gumroad.com/l/pkgmqg" target="_blank" class="nav-cta">Get the Book →</a>
   </div>
 </nav>
 
@@ -618,7 +624,7 @@
 <footer>
   <img src="https://johnee1212.github.io/AA/AdoptionAcademy_Logo_r3.jpg" alt="Adoption Academy Logo">
   <p>The Complete Guide to Domestic Adoption &nbsp;·&nbsp; <a href="https://www.amazon.com/dp/B0GTJ5TM7W" target="_blank">Amazon Kindle</a> &nbsp;·&nbsp; <a href="https://adoptionacademy.gumroad.com/l/pkgmqg" target="_blank">Gumroad PDF</a></p>
-  <p>© 2025 Adoption Academy. All rights reserved.</p>
+  <p>© 2026 Adoption Academy. All rights reserved.</p>
 </footer>
 
 </body>
