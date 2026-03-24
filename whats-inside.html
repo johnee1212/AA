@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pages from Inside the Book – The Complete Guide to Domestic Adoption</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy:    #2e4057; --navy-dk: #1e2d3e; --navy-lt: #3d5472;
+  --orange:  #c4572a; --orange-lt: #d9693d;
+  --teal:    #5aabab; --teal-lt: #7ec8c8; --teal-bg: #eef7f7;
+  --cream:   #f8f6f2; --white: #ffffff; --mid: #5a6a7a; --rule: #dde5ee;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Lato', sans-serif; background: var(--white); color: var(--navy-dk); line-height: 1.6; overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 56px;
+  box-shadow: 0 2px 16px rgba(46,64,87,0.09);
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-logo img { height: 44px; width: auto; }
+.nav-logo-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--navy); display: block; }
+.nav-logo-sub { font-size: 0.65rem; color: var(--mid); letter-spacing: 0.08em; text-transform: uppercase; }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-link { font-size: 0.85rem; color: var(--mid); text-decoration: none; font-weight: 600; }
+.nav-link:hover { color: var(--navy); }
+.nav-cta { background: var(--orange); color: white; text-decoration: none; padding: 10px 24px; border-radius: 6px; font-size: 0.88rem; font-weight: 700; box-shadow: 0 3px 12px rgba(196,87,42,0.35); transition: background 0.2s; }
+.nav-cta:hover { background: var(--orange-lt); }
+
+/* HERO */
+.hero {
+  margin-top: 66px;
+  background: linear-gradient(148deg, #1a2a38 0%, var(--navy) 60%, #3a5570 100%);
+  padding: 64px 80px 56px;
+  display: grid; grid-template-columns: 1fr 220px; gap: 60px; align-items: center;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -80px; right: -80px;
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, rgba(126,200,200,0.12) 0%, transparent 65%);
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: rgba(126,200,200,0.14); border: 1px solid rgba(126,200,200,0.28);
+  border-radius: 100px; padding: 6px 16px; margin-bottom: 16px;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal-lt);
+}
+.eyebrow-dot { width: 6px; height: 6px; background: var(--orange); border-radius: 50%; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.8vw, 2.6rem); font-weight: 900; line-height: 1.14; color: white; margin-bottom: 14px; }
+.hero h1 em { color: var(--teal-lt); font-style: normal; }
+.hero-sub { font-size: 1rem; color: rgba(255,255,255,0.78); line-height: 1.72; margin-bottom: 30px; max-width: 580px; }
+.hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
+.hero-stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; color: white; }
+.hero-stat-lbl { font-size: 0.7rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.06em; }
+.hero-book { position: relative; z-index: 1; }
+.hero-book img { width: 195px; border-radius: 4px 10px 10px 4px; box-shadow: -5px 0 0 #0f1e2e, 0 20px 50px rgba(0,0,0,0.55); animation: float 5s ease-in-out infinite; display: block; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-10px) rotate(1deg); } }
+
+/* INTRO STRIP */
+.intro-strip {
+  background: var(--cream); padding: 28px 80px;
+  display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+  border-bottom: 1px solid var(--rule);
+}
+.intro-strip p { font-size: 1rem; color: var(--mid); line-height: 1.68; max-width: 700px; }
+.intro-strip p strong { color: var(--navy-dk); }
+.intro-badge {
+  background: var(--orange); color: white; border-radius: 100px;
+  padding: 10px 24px; font-size: 0.85rem; font-weight: 700; white-space: nowrap;
+  text-decoration: none; flex-shrink: 0;
+  box-shadow: 0 3px 12px rgba(196,87,42,0.3); transition: background 0.2s;
+}
+.intro-badge:hover { background: var(--orange-lt); }
+
+/* WHAT TO EXPECT */
+.expect-strip {
+  background: var(--teal-bg); padding: 40px 80px;
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 24px;
+  border-bottom: 1px solid var(--rule);
+}
+.expect-item { text-align: center; }
+.expect-icon { font-size: 1.8rem; margin-bottom: 8px; }
+.expect-title { font-size: 0.88rem; font-weight: 700; color: var(--navy-dk); margin-bottom: 4px; }
+.expect-desc { font-size: 0.78rem; color: var(--mid); line-height: 1.5; }
+
+/* GALLERY */
+.gallery-section { padding: 64px 80px 72px; background: white; }
+.gallery-header { margin-bottom: 40px; }
+.section-label { font-size: 0.72rem; font-weight: 900; letter-spacing: 0.13em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 2.4vw, 2.3rem); font-weight: 900; line-height: 1.18; color: var(--navy-dk); margin-bottom: 8px; }
+h2 em { color: var(--navy); font-style: normal; }
+.gallery-hint { font-size: 0.88rem; color: var(--mid); margin-top: 6px; }
+.gallery-hint span { background: var(--teal-bg); border: 1px solid var(--teal); border-radius: 4px; padding: 2px 8px; font-size: 0.78rem; color: var(--teal); font-weight: 700; margin-right: 4px; }
+
+/* 3-column grid, 5 rows = 15 items */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.gal-item {
+  display: flex; flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.gal-item:hover { transform: translateY(-3px); }
+
+.gal-frame {
+  position: relative; overflow: hidden;
+  border-radius: 10px 10px 0 0;
+  background: #eef0f3;
+  line-height: 0;
+  border: 1px solid var(--rule); border-bottom: none;
+}
+.gal-frame img {
+  width: 100%; display: block;
+  transition: transform 0.35s ease;
+}
+.gal-item:hover .gal-frame img { transform: scale(1.025); }
+
+/* book spine shadow */
+.gal-frame::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+  background: linear-gradient(to right, rgba(0,0,0,0.18), transparent);
+  z-index: 2;
+}
+/* zoom hint */
+.gal-frame::after {
+  content: '🔍';
+  position: absolute; bottom: 10px; right: 12px;
+  font-size: 1.1rem; opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 3;
+}
+.gal-item:hover .gal-frame::after { opacity: 0.7; }
+
+.gal-badge {
+  position: absolute; top: 10px; right: 10px; z-index: 3;
+  background: var(--orange); color: white;
+  font-size: 0.6rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.07em;
+  padding: 3px 9px; border-radius: 100px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.gal-meta {
+  background: var(--navy-dk);
+  border-radius: 0 0 10px 10px;
+  padding: 12px 16px 14px;
+  border: 1px solid rgba(255,255,255,0.06); border-top: none;
+  flex: 1;
+}
+.gal-title { font-size: 0.85rem; font-weight: 700; color: white; margin-bottom: 3px; }
+.gal-desc { font-size: 0.73rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+/* DID YOU KNOW */
+.dyk {
+  background: var(--navy-dk); padding: 26px 80px;
+  display: flex; gap: 18px; align-items: flex-start;
+}
+.dyk-label { font-weight: 900; font-style: italic; font-size: 0.95rem; color: var(--teal-lt); white-space: nowrap; padding-top: 2px; }
+.dyk-text { font-size: 0.92rem; color: rgba(255,255,255,0.85); line-height: 1.65; }
+.dyk-text strong { color: white; }
+
+/* CTA */
+.cta {
+  background: linear-gradient(138deg, var(--orange) 0%, #a33e18 100%);
+  padding: 72px 80px; text-align: center; position: relative; overflow: hidden;
+}
+.cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='25' cy='25' r='1' fill='rgba(255,255,255,0.06)'/%3E%3C/svg%3E") repeat;
+}
+.cta .section-label { color: rgba(255,255,255,0.7); position: relative; }
+.cta h2 { color: white; position: relative; max-width: 580px; margin: 0 auto 12px; }
+.cta-sub { color: rgba(255,255,255,0.85); font-size: 1rem; max-width: 460px; margin: 0 auto 32px; position: relative; line-height: 1.7; }
+.cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
+.btn-white { background: white; color: var(--orange); text-decoration: none; padding: 16px 32px; border-radius: 8px; font-size: 1rem; font-weight: 700; display: inline-flex; align-items: center; gap: 9px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: transform 0.2s; }
+.btn-white:hover { transform: translateY(-2px); }
+.btn-outline { background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.45); color: white; text-decoration: none; padding: 16px 28px; border-radius: 8px; font-size: 1rem; font-weight: 600; transition: background 0.2s; }
+.btn-outline:hover { background: rgba(255,255,255,0.2); }
+
+/* FOOTER */
+footer { background: var(--navy-dk); padding: 30px 80px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+footer img { height: 42px; opacity: 0.8; }
+footer p { font-size: 0.8rem; color: rgba(255,255,255,0.4); text-align: center; }
+footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+footer a:hover { color: var(--teal-lt); }
+
+/* LIGHTBOX */
+.lightbox {
+  display: none; position: fixed; inset: 0; z-index: 1000;
+  background: rgba(10,18,28,0.96); backdrop-filter: blur(10px);
+  align-items: center; justify-content: center; padding: 24px;
+}
+.lightbox.active { display: flex; }
+.lb-inner {
+  position: relative; max-width: 820px; width: 100%;
+  animation: lbIn 0.22s ease;
+}
+@keyframes lbIn { from { opacity:0; transform:scale(0.94); } to { opacity:1; transform:scale(1); } }
+.lb-inner img { width: 100%; display: block; border-radius: 8px 8px 0 0; box-shadow: 0 24px 70px rgba(0,0,0,0.7); }
+.lb-close {
+  position: absolute; top: -46px; right: 0;
+  background: none; border: none; color: white; font-size: 2rem;
+  cursor: pointer; opacity: 0.6; transition: opacity 0.2s; line-height: 1; padding: 4px;
+}
+.lb-close:hover { opacity: 1; }
+.lb-caption { background: var(--navy-dk); border-radius: 0 0 8px 8px; padding: 16px 20px; }
+.lb-caption-title { font-size: 1rem; font-weight: 700; color: white; margin-bottom: 3px; }
+.lb-caption-desc { font-size: 0.82rem; color: rgba(255,255,255,0.55); }
+.lb-nav {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
+  color: white; font-size: 2rem; width: 52px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; cursor: pointer; transition: background 0.2s; line-height: 1;
+}
+.lb-nav:hover { background: rgba(255,255,255,0.18); }
+.lb-prev { left: 20px; }
+.lb-next { right: 20px; }
+.lb-counter { text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-top: 14px; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav { padding: 10px 24px; }
+  .hero { grid-template-columns: 1fr; padding: 56px 24px 48px; }
+  .hero-book { display: none; }
+  .intro-strip, .expect-strip, .gallery-section, .dyk, .cta, footer { padding-left: 24px; padding-right: 24px; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .expect-strip { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+  .expect-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="adoption-academy-landing.html" class="nav-logo">
+    <img src="https://johnee1212.github.io/AA/AdoptionAcademy_Logo_r3.jpg" alt="Adoption Academy">
+    <div>
+      <span class="nav-logo-name">Adoption Academy</span>
+      <span class="nav-logo-sub">Inside the Book</span>
+    </div>
+  </a>
+  <div class="nav-right">
+    <a href="adoption-academy-landing.html" class="nav-link">← Back to Overview</a>
+    <a href="#get-book" class="nav-cta">Get the Book →</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div>
+    <div class="hero-eyebrow"><span class="eyebrow-dot"></span> Page-by-Page Preview</div>
+    <h1>Pages from Inside<br><em>the Book</em></h1>
+    <p class="hero-sub">Every section of the guide uses charts, comparison tables, icon diagrams, checklists, and callouts to make complex adoption topics genuinely easy to understand. See for yourself.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">237</div><div class="hero-stat-lbl">Pages</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">20</div><div class="hero-stat-lbl">Sections</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">50+</div><div class="hero-stat-lbl">Visual Elements</div></div>
+    </div>
+  </div>
+  <div class="hero-book">
+    <img src="https://johnee1212.github.io/AA/page_01.jpg" alt="The Complete Guide to Domestic Adoption">
+  </div>
+</div>
+
+<div class="intro-strip">
+  <p>These are <strong>real pages from inside the book</strong> — not mockups. Click any page to enlarge it.</p>
+  <a href="#get-book" class="intro-badge">Get the Book — $19.99 →</a>
+</div>
+
+<div class="expect-strip">
+  <div class="expect-item">
+    <div class="expect-icon">📊</div>
+    <div class="expect-title">Comparison Tables</div>
+    <div class="expect-desc">Complex decisions laid out side-by-side so you can see every option clearly</div>
+  </div>
+  <div class="expect-item">
+    <div class="expect-icon">🔵</div>
+    <div class="expect-title">Process Diagrams</div>
+    <div class="expect-desc">Multi-step flows with icons so you always know exactly what happens next</div>
+  </div>
+  <div class="expect-item">
+    <div class="expect-icon">✅</div>
+    <div class="expect-title">Actionable Checklists</div>
+    <div class="expect-desc">Readiness checks, document lists, and question guides you can use immediately</div>
+  </div>
+  <div class="expect-item">
+    <div class="expect-icon">🤍</div>
+    <div class="expect-title">Myth vs. Reality</div>
+    <div class="expect-desc">Common fears addressed head-on with honest, research-backed answers</div>
+  </div>
+</div>
+
+<div class="gallery-section">
+  <div class="gallery-header">
+    <div class="section-label">Interior Pages</div>
+    <h2>Pages from <em>Inside the Book</em></h2>
+    <div class="gallery-hint"><span>Click to enlarge</span> Use arrow keys or buttons to browse all 15 pages</div>
+  </div>
+  <div class="gallery-grid" id="gallery">
+
+    <div class="gal-item">
+      <div class="gal-frame">
+        <img src="https://johnee1212.github.io/AA/page_02.jpg" alt="History of Adoption in the U.S." loading="lazy">
+        <div class="gal-badge">Timeline Infographic</div>
+      </div>
+      <div class="gal-meta">
+        <div class="gal-title">History of Adoption in the U.S.</div>
+        <div class="gal-desc">Visual zigzag timeline from 1851 to today, with Key Point callout and family photo</div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-frame">
+        <img src="https://johnee1212.github.io/AA/page_03.jpg" alt="Different Paths to Adoption" loading="lazy">
+        <div class="gal-badge">Comparison Table</div>
+      </div>
+      <div class="gal-meta">
+        <div class="gal-title">Different Paths to Adoption</div>
+        <div class="gal-desc">Side-by-side: Domestic vs. International vs. Foster — costs, timelines, travel, legal process</div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-frame">
+        <img src="https://johnee1212.github.io/AA/page_04.jpg" alt="How Domestic Adoption Works" loading="lazy">
+        <div class="gal-badge">Process Flow Diagram</div>
+      </div>
+      <div class="gal-meta">
+        <div class="gal-title">How Domestic Adoption Works</div>
+        <div class="gal-desc">5-step icon flow showing the complete journey from preparation to finalization</div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-frame">
+        <img src="https://johnee1212.github.io/AA/page_05.jpg" alt="Adoption Communication Spectrum" loading="lazy">
+        <div class="gal-badge">Spectrum Chart</div>
+      </div>
+      <div class="gal-meta">
+        <div class="gal-title">Adoption Communication Spectrum</div>
+        <div class="gal-desc">Open, Semi-Open, and Closed adoption compared across contact types, benefits, and boundaries</div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-frame">
+        <img src="https://johnee1212.github.io/AA/page_06.jpg" alt="Is Domestic Adoption Right for You?" loading="lazy">
+        <div class="gal-badge">Readiness Checklist</div>
+      </div>
+      <div class="gal-meta">
+        <div class="gal-title">Is Domestic Adoption Right for You?</div>
+        <div class="gal-desc">5-area self-assessment: emotional, practical, financial, time commitment, and support system</div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-frame">
+        <img src="https://johnee1212.github.io/AA/page_07.jpg" alt="The 7-Phase Process at a Glance" loading="lazy">
+        <div class="gal-badge">Phase Diagram</div>
+      </div>
+      <div class="gal-meta">
+        <div class="gal-title">The 7-Phase Process at a Glance</div>
+        <div class="gal-desc">Diamond diagram mapping all 7 phases — Preparation through Post-Placement — with real timelines</div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-frame">
+        <img src="https://johnee1212.github.io/AA/page_08.jpg" alt="Open Adoption — Characteristics & Benefits" loading="lazy">
+        <div class="gal-badge">Four-Column Table</div>
+      </div>
+      <div class="gal-meta">
+        <div class="gal-title">Open Adoption — Characteristics & Benefits</div>
+        <div class="gal-desc">Characteristics, contact types, benefits, and challenges of open adoption side by side</div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-frame">
+        <img src="https://johnee1212.github.io/AA/page_09.jpg" alt="Choosing a Professional: Questions to Ask" loading="lazy">
+        <div class="gal-badge">Question Guide</div>
+      </div>
+      <div class="gal-meta">
+        <div class="gal-title">Choosing a Professional: Questions to Ask</div>
+        <div class="gal-desc">Categorized interview questions for vetting agencies and attorneys — Experience, Services & more</div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-frame">
+        <img src="https://johnee1212.github.io/AA/page_10.jpg" alt="The Adoption Home Study — 3 Purposes" loading="lazy">
+        <div class="gal-badge">Icon Layout</div>
+      </div>
+      <div class="gal-meta">
+        <div class="gal-title">The Adoption Home Study — 3 Purposes</div>
+        <div class="gal-desc">Three orange icon circles showing what the home study actually evaluates, plus Did You Know banner</div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-frame">
+        <img src="https://johnee1212.github.io/AA/page_11.jpg" alt="Home Study Documentation" loading="lazy">
+        <div class="gal-badge">Document Checklist</div>
+      </div>
+      <div class="gal-meta">
+        <div class="gal-title">Home Study Documentation</div>
+        <div class="gal-desc">Four-category checklist: Personal ID, Financial, Health Information, and Background Clearances</div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-frame">
+        <img src="https://johnee1212.github.io/AA/page_12.jpg" alt="Why Birth Parents Choose Adoption" loading="lazy">
+        <div class="gal-badge">Icon Grid</div>
+      </div>
+      <div class="gal-meta">
+        <div class="gal-title">Why Birth Parents Choose Adoption</div>
+        <div class="gal-desc">Seven-icon grid of birth parent motivations — builds empathy and prepares families for matching</div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-frame">
+        <img src="https://johnee1212.github.io/AA/page_13.jpg" alt="Agency-Facilitated Matching: How It Works" loading="lazy">
+        <div class="gal-badge">Step Flow</div>
+      </div>
+      <div class="gal-meta">
+        <div class="gal-title">Agency-Facilitated Matching: How It Works</div>
+        <div class="gal-desc">3-step visual flow of the agency matching process with explanatory text</div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-frame">
+        <img src="https://johnee1212.github.io/AA/page_14.jpg" alt="Processing Emotions After a Failed Adoption" loading="lazy">
+        <div class="gal-badge">Four-Column Layout</div>
+      </div>
+      <div class="gal-meta">
+        <div class="gal-title">Processing Emotions After a Failed Adoption</div>
+        <div class="gal-desc">The Nature of Adoption Grief — Ambiguous Loss, Disenfranchised, Compound, Hope & Attachment</div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-frame">
+        <img src="https://johnee1212.github.io/AA/page_15.jpg" alt="Understanding Adoption Costs" loading="lazy">
+        <div class="gal-badge">Cost Framework</div>
+      </div>
+      <div class="gal-meta">
+        <div class="gal-title">Understanding Adoption Costs</div>
+        <div class="gal-desc">Always Required / Sometimes Required / Optional framework for categorizing every adoption expense</div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-frame">
+        <img src="https://johnee1212.github.io/AA/page_16.jpg" alt="Why Birth Parent Support Costs Vary" loading="lazy">
+        <div class="gal-badge">Reference Guide</div>
+      </div>
+      <div class="gal-meta">
+        <div class="gal-title">Why Birth Parent Support Costs Vary</div>
+        <div class="gal-desc">Individual, medical, and state law factors that determine birth parent financial support amounts</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dyk">
+  <div class="dyk-label">Did You Know?</div>
+  <div class="dyk-text">The guide was originally developed as a video course — then rebuilt as a book so every concept that works visually in video is <strong>just as clear on the page</strong>. That's why every illustration and diagram is so intentional.</div>
+</div>
+
+<div class="cta" id="get-book">
+  <div class="section-label">Ready to Begin?</div>
+  <h2>Get the Complete Guide Today</h2>
+  <p class="cta-sub">237 pages. 20 sections. The most comprehensive domestic adoption guide available — beautifully illustrated and written in plain language.</p>
+  <div class="cta-btns">
+    <a href="https://www.amazon.com/dp/B0GTJ5TM7W" target="_blank" class="btn-white">📚 Buy on Amazon Kindle — $19.99</a>
+    <a href="https://adoptionacademy.gumroad.com/l/pkgmqg" target="_blank" class="btn-outline">⬇️ Download PDF (Gumroad)</a>
+  </div>
+</div>
+
+<footer>
+  <img src="https://johnee1212.github.io/AA/AdoptionAcademy_Logo_r3.jpg" alt="Adoption Academy">
+  <p>The Complete Guide to Domestic Adoption &nbsp;·&nbsp; <a href="https://www.amazon.com/dp/B0GTJ5TM7W" target="_blank">Amazon Kindle</a> &nbsp;·&nbsp; <a href="https://adoptionacademy.gumroad.com/l/pkgmqg" target="_blank">Gumroad PDF</a></p>
+  <p>© 2026 Adoption Academy. All rights reserved.</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-nav lb-prev" onclick="navLB(-1)">&#8249;</button>
+  <button class="lb-nav lb-next" onclick="navLB(1)">&#8250;</button>
+  <div class="lb-inner">
+    <button class="lb-close" onclick="closeLB()">&#x2715;</button>
+    <img id="lb-img" src="" alt="">
+    <div class="lb-caption">
+      <div class="lb-caption-title" id="lb-title"></div>
+      <div class="lb-caption-desc" id="lb-desc"></div>
+    </div>
+    <div class="lb-counter" id="lb-counter"></div>
+  </div>
+</div>
+
+<script>
+  const items = Array.from(document.querySelectorAll('.gal-item'));
+  let current = 0;
+
+  items.forEach((item, i) => {
+    item.addEventListener('click', () => openLB(i));
+  });
+
+  function openLB(i) {
+    current = i; updateLB();
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLB() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function navLB(dir) {
+    current = (current + dir + items.length) % items.length;
+    updateLB();
+  }
+  function updateLB() {
+    const item = items[current];
+    document.getElementById('lb-img').src = item.querySelector('img').src;
+    document.getElementById('lb-title').textContent = item.querySelector('.gal-title').textContent;
+    document.getElementById('lb-desc').textContent = item.querySelector('.gal-desc').textContent;
+    document.getElementById('lb-counter').textContent = (current + 1) + ' of ' + items.length;
+  }
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLB();
+  });
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightbox').classList.contains('active')) return;
+    if (e.key === 'Escape') closeLB();
+    if (e.key === 'ArrowRight') navLB(1);
+    if (e.key === 'ArrowLeft') navLB(-1);
+  });
+</script>
+</body>
+</html>

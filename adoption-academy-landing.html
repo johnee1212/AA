@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Complete Guide to Domestic Adoption – Adoption Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:      #2e4057;
+    --navy-dk:   #1e2d3e;
+    --navy-lt:   #3d5472;
+    --orange:    #c4572a;
+    --orange-lt: #d9693d;
+    --teal:      #7ec8c8;
+    --teal-dk:   #5aabab;
+    --cream:     #f8f6f2;
+    --white:     #ffffff;
+    --charcoal:  #1e2d3e;
+    --mid:       #5a6a7a;
+    --rule:      #dde5ee;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--white);
+    color: var(--charcoal);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 56px;
+    box-shadow: 0 2px 16px rgba(46,64,87,0.09);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo img { height: 46px; width: auto; }
+  .nav-logo-text { line-height: 1.25; }
+  .nav-logo-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--navy); display: block; }
+  .nav-logo-sub { font-size: 0.65rem; color: var(--mid); letter-spacing: 0.08em; text-transform: uppercase; }
+  .nav-right { display: flex; align-items: center; gap: 20px; }
+  .nav-link { font-size: 0.85rem; color: var(--mid); text-decoration: none; font-weight: 600; }
+  .nav-link:hover { color: var(--navy); }
+  .nav-cta {
+    background: var(--orange); color: white; text-decoration: none;
+    padding: 10px 24px; border-radius: 6px;
+    font-size: 0.88rem; font-weight: 700;
+    box-shadow: 0 3px 12px rgba(196,87,42,0.35);
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--orange-lt); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(148deg, #1a2a38 0%, var(--navy) 55%, #3a5570 100%);
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    align-items: center;
+    gap: 70px;
+    padding: 130px 80px 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(126,200,200,0.10) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -80px; left: 20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(196,87,42,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 9px;
+    background: rgba(126,200,200,0.14);
+    border: 1px solid rgba(126,200,200,0.28);
+    border-radius: 100px;
+    padding: 7px 18px; margin-bottom: 28px;
+    font-size: 0.73rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal);
+  }
+  .eyebrow-dot { width: 7px; height: 7px; background: var(--orange); border-radius: 50%; flex-shrink: 0; }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+    font-weight: 900; line-height: 1.13;
+    color: white; margin-bottom: 24px;
+  }
+  .hero h1 em { color: var(--teal); font-style: normal; }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.82);
+    max-width: 540px; margin-bottom: 42px;
+    line-height: 1.75;
+  }
+
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-bottom: 44px; }
+
+  .btn-primary {
+    background: var(--orange); color: white; text-decoration: none;
+    padding: 17px 34px; border-radius: 8px;
+    font-size: 1rem; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 9px;
+    box-shadow: 0 5px 22px rgba(196,87,42,0.45);
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--orange-lt); transform: translateY(-2px); }
+
+  .btn-ghost {
+    background: rgba(255,255,255,0.1);
+    border: 1.5px solid rgba(255,255,255,0.32);
+    color: white; text-decoration: none;
+    padding: 17px 28px; border-radius: 8px;
+    font-size: 0.95rem; font-weight: 600;
+    transition: background 0.2s;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.18); }
+
+  .hero-proof {
+    display: flex; align-items: center; gap: 18px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(255,255,255,0.14);
+  }
+  .stars { color: #ffd166; font-size: 1rem; letter-spacing: 1px; }
+  .proof-text { font-size: 0.87rem; color: rgba(255,255,255,0.68); }
+  .proof-text strong { color: white; }
+
+  /* Book mockup */
+  .hero-book { position: relative; z-index: 1; display: flex; justify-content: center; align-items: center; }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: white;
+    border-bottom: 1px solid var(--rule);
+    padding: 22px 80px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 56px; flex-wrap: wrap;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  }
+  .trust-item { display: flex; align-items: center; gap: 10px; }
+  .trust-icon { font-size: 1.3rem; }
+  .trust-text { font-size: 0.84rem; font-weight: 700; color: var(--mid); }
+
+  /* ── SHARED SECTION STYLES ── */
+  section { padding: 90px 80px; }
+  .section-label {
+    font-size: 0.73rem; font-weight: 900;
+    letter-spacing: 0.13em; text-transform: uppercase;
+    color: var(--teal-dk); margin-bottom: 14px;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+    font-weight: 800; line-height: 1.18;
+    color: var(--charcoal); margin-bottom: 18px;
+  }
+  h2 em { color: var(--navy); font-style: normal; }
+  .lead { font-size: 1.08rem; color: var(--mid); max-width: 580px; line-height: 1.75; }
+
+  /* ── EMPATHY ── */
+  .empathy { background: var(--cream); }
+  .empathy-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 70px; align-items: center; margin-top: 48px;
+  }
+  .pain-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .pain-list li {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 15px 18px;
+    background: white; border-radius: 10px;
+    border-left: 3px solid var(--orange);
+    font-size: 0.94rem; color: var(--charcoal); line-height: 1.5;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .pain-icon { font-size: 1rem; margin-top: 2px; flex-shrink: 0; }
+  .empathy-pullquote {
+    background: var(--navy);
+    color: white; border-radius: 16px;
+    padding: 44px 38px; position: relative;
+    overflow: hidden;
+  }
+  .empathy-pullquote::before {
+    content: '"';
+    position: absolute; top: 8px; left: 22px;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem; line-height: 1;
+    color: rgba(126,200,200,0.15);
+    pointer-events: none;
+  }
+  .empathy-pullquote p {
+    font-size: 1.15rem; line-height: 1.72;
+    font-style: italic; color: rgba(255,255,255,0.9);
+    margin-bottom: 22px; position: relative;
+  }
+  .empathy-pullquote-meta { font-size: 0.84rem; color: rgba(255,255,255,0.55); font-weight: 700; }
+  .teal-line { display: inline-block; width: 32px; height: 3px; background: var(--teal); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+
+  /* ── CHAPTERS ── */
+  .learn { background: white; }
+  .learn-top { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: start; margin-bottom: 52px; }
+  .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .stat-box {
+    background: var(--cream); border-radius: 12px;
+    padding: 26px 20px; text-align: center;
+    border-bottom: 3px solid var(--teal-dk);
+  }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; color: var(--navy); }
+  .stat-lbl { font-size: 0.78rem; color: var(--mid); margin-top: 4px; line-height: 1.4; }
+  .chapters-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .chapter-card {
+    background: var(--cream); border-radius: 10px;
+    padding: 22px 18px;
+    border-top: 3px solid var(--teal);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .chapter-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(46,64,87,0.10); }
+  .ch-num { font-size: 0.68rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal-dk); margin-bottom: 9px; }
+  .ch-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--charcoal); line-height: 1.3; margin-bottom: 7px; }
+  .ch-desc { font-size: 0.80rem; color: var(--mid); line-height: 1.55; }
+
+  /* ── WHO ── */
+  .for-who { background: var(--cream); }
+  .persona-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+  .persona-card {
+    background: white; border-radius: 14px;
+    padding: 30px 26px;
+    display: flex; gap: 18px; align-items: flex-start;
+    border: 1.5px solid var(--rule);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .persona-card:hover { border-color: var(--teal-dk); box-shadow: 0 8px 24px rgba(46,64,87,0.08); }
+  .persona-icon {
+    width: 50px; height: 50px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--navy), var(--navy-lt));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; flex-shrink: 0;
+  }
+  .persona-card h3 { font-size: 1rem; font-weight: 700; color: var(--charcoal); margin-bottom: 6px; }
+  .persona-card p { font-size: 0.87rem; color: var(--mid); line-height: 1.58; }
+
+  /* ── FEATURES ── */
+  .inside { background: white; }
+  .inside-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 48px; }
+  .feature-list { display: flex; flex-direction: column; gap: 20px; }
+  .feature-item { display: flex; gap: 16px; align-items: flex-start; }
+  .feature-icon {
+    width: 38px; height: 38px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--navy), var(--navy-lt));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .feature-item h4 { font-size: 1rem; font-weight: 700; color: var(--charcoal); margin-bottom: 4px; }
+  .feature-item p { font-size: 0.87rem; color: var(--mid); line-height: 1.58; }
+  .book-preview {
+    display: flex; justify-content: center; align-items: center;
+    position: relative;
+  }
+  .book-preview img {
+    width: 260px; border-radius: 4px 10px 10px 4px;
+    box-shadow: -6px 0 0 #1e2d3e, 0 24px 60px rgba(0,0,0,0.3);
+  }
+
+  /* ── TESTIMONIALS ── */
+
+
+  /* ── CTA ── */
+  .cta-section {
+    background: linear-gradient(138deg, var(--orange) 0%, #a33e18 100%);
+    text-align: center; padding: 100px 80px;
+    position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1' fill='rgba(255,255,255,0.06)'/%3E%3C/svg%3E") repeat;
+  }
+  .cta-section .section-label { color: rgba(255,255,255,0.7); position: relative; }
+  .cta-section h2 { color: white; position: relative; max-width: 680px; margin: 0 auto 18px; }
+  .cta-sub { color: rgba(255,255,255,0.85); font-size: 1.08rem; max-width: 500px; margin: 0 auto 40px; position: relative; line-height: 1.7; }
+  .price-tag {
+    display: inline-flex; align-items: baseline; gap: 10px;
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 100px; padding: 12px 30px;
+    margin-bottom: 36px; position: relative;
+  }
+  .price-amount { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; color: white; }
+  .price-note { font-size: 0.88rem; color: rgba(255,255,255,0.75); }
+  .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+  .btn-white {
+    background: white; color: var(--orange); text-decoration: none;
+    padding: 18px 36px; border-radius: 8px;
+    font-size: 1rem; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 10px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.22);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+  .btn-white-outline {
+    background: rgba(255,255,255,0.13);
+    border: 2px solid rgba(255,255,255,0.48);
+    color: white; text-decoration: none;
+    padding: 18px 32px; border-radius: 8px;
+    font-size: 1rem; font-weight: 600;
+    transition: background 0.2s;
+  }
+  .btn-white-outline:hover { background: rgba(255,255,255,0.22); }
+  .cta-guarantee { margin-top: 32px; position: relative; font-size: 0.84rem; color: rgba(255,255,255,0.68); }
+
+  /* ── FAQ ── */
+  .faq { background: var(--cream); }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; margin-top: 48px; }
+  .faq-item { padding: 22px 0; border-bottom: 1px solid var(--rule); }
+  .faq-q { font-size: 0.97rem; font-weight: 700; color: var(--charcoal); margin-bottom: 9px; }
+  .faq-a { font-size: 0.88rem; color: var(--mid); line-height: 1.68; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy-dk);
+    padding: 44px 80px 32px;
+    display: flex; flex-direction: column; align-items: center; gap: 16px;
+  }
+  footer img { height: 48px; width: auto; opacity: 0.85; }
+  footer p { font-size: 0.82rem; color: rgba(255,255,255,0.45); text-align: center; }
+  footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  footer a:hover { color: var(--teal); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    .hero { grid-template-columns: 1fr; padding: 110px 32px 60px; text-align: center; gap: 50px; }
+    .hero-sub { margin: 0 auto 40px; }
+    .hero-btns { justify-content: center; }
+    .hero-proof { justify-content: center; }
+    .hero-book { order: -1; }
+    .trust-bar, section, .cta-section, footer { padding-left: 32px; padding-right: 32px; }
+    .trust-bar { gap: 24px; }
+    .empathy-grid, .learn-top, .inside-grid, .persona-grid { grid-template-columns: 1fr; gap: 40px; }
+    .chapters-grid { grid-template-columns: 1fr 1fr; }
+
+    .faq-grid { grid-template-columns: 1fr; }
+    .stat-row { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── BOOK MOCKUP ── */
+  .book-scene {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 40px 60px 40px;
+  }
+
+  .book-wrap {
+    position: relative;
+    animation: bookFloat 6s ease-in-out infinite;
+  }
+  @keyframes bookFloat {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-12px); }
+  }
+
+  /* ── COVER FACE ── */
+  .book-cover-img {
+    display: block;
+    width: 280px;
+    border-radius: 3px 6px 6px 3px;
+    position: relative;
+    z-index: 2;
+    box-shadow:
+      -6px 0 0 #1a2d42,
+      -10px 4px 8px rgba(0,0,0,0.35),
+      8px 8px 30px rgba(0,0,0,0.30),
+      0 20px 40px rgba(0,0,0,0.20);
+  }
+
+  /* Hide 3D faces */
+  .book-spine, .book-pages, .book-bottom { display: none; }
+
+  /* ── SURFACE SHADOW ── */
+  .book-shadow {
+    position: absolute;
+    bottom: -28px; left: 10px; right: 10px;
+    height: 28px;
+    background: radial-gradient(ellipse at 50% 0%, rgba(0,0,0,0.35) 0%, transparent 70%);
+    filter: blur(12px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── BADGE ── */
+  .bestseller-badge {
+    position: absolute;
+    top: -20px; right: -28px;
+    width: 74px; height: 74px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-size: 0.52rem; font-weight: 800; color: white;
+    text-align: center; text-transform: uppercase; letter-spacing: 0.07em; line-height: 1.35;
+    box-shadow: 0 5px 20px rgba(196,87,42,0.65);
+    border: 2px solid rgba(255,255,255,0.4);
+    animation: badgePulse 2.5s ease-in-out infinite;
+    z-index: 5;
+  }
+  @keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.08); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="https://johnee1212.github.io/AA/AdoptionAcademy_Logo_r3.jpg" alt="Adoption Academy Logo">
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Adoption Academy</span>
+      <span class="nav-logo-sub">Domestic Adoption Guide</span>
+    </div>
+  </a>
+  <div class="nav-right">
+    <a href="#what-inside" class="nav-link">What's Inside</a>
+    <a href="#get-book" class="nav-cta">Get the Book →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-dot"></span>
+      The Most Comprehensive Domestic Adoption Guide Available
+    </div>
+    <h1>Navigate Domestic Adoption with <em>Clarity & Confidence</em></h1>
+    <p class="hero-sub">What to expect, what to avoid, and how to move forward — from your very first question all the way to bringing your child home.</p>
+    <div class="hero-btns">
+      <a href="https://www.amazon.com/dp/B0GTJ5TM7W" target="_blank" class="btn-primary">
+        📚 Buy on Amazon Kindle
+      </a>
+      <a href="https://adoptionacademy.gumroad.com/l/pkgmqg" target="_blank" class="btn-ghost">
+        ⬇️ Download PDF
+      </a>
+    </div>
+    <div class="hero-proof">
+      <div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <p class="proof-text"><strong>Rated 5 stars</strong> by adoptive families &nbsp;·&nbsp; Available on Amazon Kindle &amp; PDF</p>
+    </div>
+  </div>
+
+  <div class="hero-book">
+    <div class="book-wrap">
+      <div class="bestseller-badge">New<br>2026<br>Release</div>
+      <div class="book-spine"></div>
+      <img class="book-cover-img" src="https://johnee1212.github.io/AA/AA_Full%20Course%20KDP%20Cover.jpg" alt="The Complete Guide to Domestic Adoption book cover">
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">📖</span><span class="trust-text">Complete A–Z Guide</span></div>
+  <div class="trust-item"><span class="trust-icon">🖼️</span><span class="trust-text">Rich Illustrations</span></div>
+  <div class="trust-item"><span class="trust-icon">⚖️</span><span class="trust-text">Legal & Agency Insights</span></div>
+  <div class="trust-item"><span class="trust-icon">💬</span><span class="trust-text">Plain-Language Explanations</span></div>
+  <div class="trust-item"><span class="trust-icon">📱</span><span class="trust-text">Kindle &amp; PDF Formats</span></div>
+</div>
+
+<!-- EMPATHY -->
+<section class="empathy">
+  <div class="section-label">You're Not Alone</div>
+  <h2>Adoption is One of Life's Most <em>Complex</em> Journeys</h2>
+  <div class="empathy-grid">
+    <div>
+      <p class="lead" style="margin-bottom:26px;">Most adoptive parents start feeling overwhelmed, confused, and unsure where to turn. Sound familiar?</p>
+      <ul class="pain-list">
+        <li><span class="pain-icon">😟</span>"I don't know where to begin — agency, attorney, foster care?"</li>
+        <li><span class="pain-icon">😟</span>"The legal process feels impossibly complex to understand."</li>
+        <li><span class="pain-icon">😟</span>"I'm terrified of making an expensive mistake or being scammed."</li>
+        <li><span class="pain-icon">😟</span>"I signed with an agency but still don't know what's coming next."</li>
+        <li><span class="pain-icon">😟</span>"I can't find one place that explains everything clearly."</li>
+      </ul>
+    </div>
+    <div class="empathy-pullquote">
+      <p>We wrote this guide because no one should have to piece together their adoption journey from a hundred different websites, outdated books, and conflicting advice from well-meaning friends.</p>
+      <div class="empathy-pullquote-meta"><span class="teal-line"></span>Adoption Academy</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section class="learn" id="what-inside">
+  <div class="section-label">Inside the Book</div>
+  <div class="learn-top">
+    <div>
+      <h2>Every Section You Need, <em>Nothing You Don't</em></h2>
+      <p class="lead">20 comprehensive sections covering the entire domestic adoption journey — written in clear, compassionate language with illustrations, checklists, timelines, and myth-busting reality checks at every step.</p>
+    </div>
+    <div class="stat-row" style="align-self:center;">
+      <div class="stat-box"><div class="stat-num">20</div><div class="stat-lbl">In-Depth Sections</div></div>
+      <div class="stat-box"><div class="stat-num">237</div><div class="stat-lbl">Pages of Expert Guidance</div></div>
+      <div class="stat-box"><div class="stat-num">7</div><div class="stat-lbl">Process Phases Mapped</div></div>
+      <div class="stat-box"><div class="stat-num">100%</div><div class="stat-lbl">Focused on Domestic Adoption</div></div>
+    </div>
+  </div>
+  <div class="chapters-grid">
+    <div class="chapter-card"><div class="ch-num">Section 1</div><div class="ch-title">Understanding Domestic Adoption</div><div class="ch-desc">What domestic adoption really is, how it compares to international and foster paths, who qualifies, and whether it's right for your family — including an honest readiness checklist.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 2</div><div class="ch-title">Overview of the Adoption Process</div><div class="ch-desc">All 7 phases mapped clearly — from Preparation through Post-Placement — with real timelines, key milestones, and exactly what to do first to get started.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 3</div><div class="ch-title">Types of Adoption</div><div class="ch-desc">Open, semi-open, and closed adoption explained in depth — what each looks like in practice, the research on outcomes, and how to decide what's right for your family.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 4</div><div class="ch-title">Choosing an Adoption Professional</div><div class="ch-desc">Agency vs. attorney — the real differences, how to compare services and fees, questions to ask, credentials to verify, and red flags to avoid before signing anything.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 5</div><div class="ch-title">The Adoption Home Study</div><div class="ch-desc">Every step of this required evaluation demystified — background checks, home visits, interviews, what social workers look for, and how to prepare with confidence.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 6</div><div class="ch-title">Adoption Preferences</div><div class="ch-desc">How to thoughtfully define your openness to race, age, medical history, and special needs — and how your preferences directly affect your wait time and match opportunities.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 7</div><div class="ch-title">Your Adoptive Family Profile</div><div class="ch-desc">How birth parents choose adoptive families, what makes a profile stand out, how to write your Dear Birth Parent letter, and photo selection strategies that work.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 8</div><div class="ch-title">Birth Parents & the Matching Process</div><div class="ch-desc">Who birth parents are, why they choose adoption, how matching really works, what to expect during the wait, and how to build a healthy relationship from the start.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 9</div><div class="ch-title">Birth Fathers</div><div class="ch-desc">The most overlooked topic in adoption — birth father rights, consent requirements by state, putative father registries, and how this affects the security of your adoption.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 10</div><div class="ch-title">Being Chosen & Communicating with Birth Parents</div><div class="ch-desc">What happens when a birth parent selects you, how to navigate those first conversations, setting healthy boundaries, and building a relationship built on trust and respect.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 11</div><div class="ch-title">Failed Adoptions & Scams</div><div class="ch-desc">The honest truth about disrupted adoptions — how common they are, how to emotionally prepare, and how to spot and avoid the adoption scams targeting hopeful families.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 12</div><div class="ch-title">Adoption Attorneys</div><div class="ch-desc">What adoption attorneys do, when you need one even if using an agency, how to find qualified representation, and what to expect at every legal stage of the process.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 13</div><div class="ch-title">Federal & State Adoption Laws</div><div class="ch-desc">The legal framework governing domestic adoption — ICPC, interstate requirements, consent laws, revocation periods, and how state-by-state differences affect your journey.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 14</div><div class="ch-title">Legal Rights & Responsibilities</div><div class="ch-desc">Your rights as an adoptive parent, birth parent legal rights, the termination of parental rights process, and what makes an adoption legally secure and uncontestable.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 15</div><div class="ch-title">Adoption Costs</div><div class="ch-desc">A complete financial picture — agency fees, attorney costs, home study fees, and hidden expenses — plus grants, employer benefits, and financing strategies that real families use.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 16</div><div class="ch-title">Birth Parent Financial Support</div><div class="ch-desc">What you're legally allowed to pay, what constitutes illegal payments, how living expense support works by state, and how to avoid costly legal and ethical mistakes.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 17</div><div class="ch-title">The Adoption Tax Credit</div><div class="ch-desc">How to maximize the federal adoption tax credit — eligibility, how to claim it, what expenses qualify, special rules for special needs adoptions, and common filing mistakes.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 18</div><div class="ch-title">Traveling for the Birth</div><div class="ch-desc">What to do when your child is born in another state — ICPC clearance, how long you'll need to stay, travel logistics, what to pack, and how to prepare for the unexpected.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 19</div><div class="ch-title">The Hospital & Placement Experience</div><div class="ch-desc">Your hospital plan, what to expect in the delivery room, the emotional complexity of those first days, birth parent time with the baby, and what placement actually looks like.</div></div>
+    <div class="chapter-card"><div class="ch-num">Section 20</div><div class="ch-title">Post-Placement & Finalization</div><div class="ch-desc">Post-placement visits, what supervisors look for, the finalization court hearing, obtaining your child's new birth certificate — and celebrating the moment it's truly official.</div></div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="for-who">
+  <div class="section-label">Who This Book Is For</div>
+  <h2>Wherever You Are in the Journey, <em>This Guide Meets You There</em></h2>
+  <div class="persona-grid">
+    <div class="persona-card"><div class="persona-icon">🌱</div><div><h3>Just Starting to Explore</h3><p>Curious about adoption but not sure where to begin? This book maps all your options and helps you decide if domestic adoption is right for your family.</p></div></div>
+    <div class="persona-card"><div class="persona-icon">📋</div><div><h3>Already In the Process</h3><p>Started the paperwork or signed with an agency but feel uncertain? This fills in the gaps and prepares you for every phase ahead.</p></div></div>
+    <div class="persona-card"><div class="persona-icon">⏳</div><div><h3>Waiting for a Match</h3><p>In the waiting period and want to use the time wisely? Get deeply prepared for home study, placement day, and what follows.</p></div></div>
+    <div class="persona-card"><div class="persona-icon">💛</div><div><h3>After Infertility or Hardship</h3><p>This guide approaches every topic with honesty, compassion, and deep respect for the emotional complexity of your journey.</p></div></div>
+  </div>
+</section>
+
+<!-- WHY DIFFERENT -->
+<section class="inside">
+  <div class="section-label">Why This Guide is Different</div>
+  <h2>The Most <em>Complete</em> Domestic Adoption Resource Available</h2>
+  <div class="inside-grid">
+    <div class="feature-list">
+      <div class="feature-item"><div class="feature-icon">🗺️</div><div><h4>A True A-to-Z Roadmap</h4><p>From your first question to finalization day — every stage covered in logical order so you always know what's coming next.</p></div></div>
+      <div class="feature-item"><div class="feature-icon">🖼️</div><div><h4>Excellent Illustrations Throughout</h4><p>Complex processes made visual. Charts and diagrams that make legal and procedural concepts genuinely understandable.</p></div></div>
+      <div class="feature-item"><div class="feature-icon">⚖️</div><div><h4>Legal Clarity Without the Jargon</h4><p>ICPC, consent laws, revocation periods, home study requirements — all in plain language a non-lawyer can actually use.</p></div></div>
+      <div class="feature-item"><div class="feature-icon">💸</div><div><h4>Complete Financial Picture</h4><p>Real cost breakdowns, adoption tax credit guidance, grant sources, and financing options so money never derails your plans.</p></div></div>
+      <div class="feature-item"><div class="feature-icon">❤️</div><div><h4>Emotionally Honest & Compassionate</h4><p>Written by people who understand the emotional complexity of adoption — for adoptive parents, not at them.</p></div></div>
+    </div>
+    <div class="book-preview">
+      <img src="https://johnee1212.github.io/AA/AA_Full%20Course%20KDP%20Cover.jpg" alt="Book cover">
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<!-- CTA -->
+<section class="cta-section" id="get-book">
+  <div class="section-label">Get Your Copy Today</div>
+  <h2>Start Your Adoption Journey with <em>Confidence</em></h2>
+  <p class="cta-sub">The most comprehensive guide to domestic adoption ever written. Instant access. Read on any device.</p>
+  <div class="price-tag">
+    <span class="price-amount">$19.99</span>
+    <span class="price-note">on Amazon Kindle</span>
+  </div>
+  <br>
+  <div class="cta-btns">
+    <a href="https://www.amazon.com/dp/B0GTJ5TM7W" target="_blank" class="btn-white">📚 Buy on Amazon Kindle</a>
+    <a href="https://adoptionacademy.gumroad.com/l/pkgmqg" target="_blank" class="btn-white-outline">⬇️ Download PDF (Gumroad)</a>
+  </div>
+  <div class="cta-guarantee">🔒 Secure checkout &nbsp;·&nbsp; Instant delivery &nbsp;·&nbsp; Read on any device</div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="section-label">Common Questions</div>
+  <h2>Frequently Asked <em>Questions</em></h2>
+  <div class="faq-grid">
+    <div class="faq-item"><div class="faq-q">Who is this book written for?</div><div class="faq-a">Any adoptive parent at any stage of the domestic adoption journey — from those just starting to explore to families already matched with an agency who want to be fully prepared.</div></div>
+    <div class="faq-item"><div class="faq-q">Is this different from books covering all adoption types?</div><div class="faq-a">Yes — 100% focused on domestic adoption in the U.S. That means deeper, more relevant coverage on every topic without space wasted on international or foster processes.</div></div>
+    <div class="faq-item"><div class="faq-q">What formats is the book available in?</div><div class="faq-a">Amazon Kindle (read on any device with the free Kindle app) and as a PDF download via Gumroad — perfect for printing or reading on your tablet.</div></div>
+    <div class="faq-item"><div class="faq-q">Does it cover open adoption?</div><div class="faq-a">Yes — a full chapter on open, semi-open, and closed adoption, covering how to navigate ongoing contact with birth families thoughtfully and healthily.</div></div>
+    <div class="faq-item"><div class="faq-q">We're already working with an agency. Is this still useful?</div><div class="faq-a">Absolutely. Most families in agency processes feel they don't have the full picture. This guide covers what agencies often gloss over — legal rights, financial surprises, and emotional preparation.</div></div>
+    <div class="faq-item"><div class="faq-q">Does it cover the home study in detail?</div><div class="faq-a">Yes — one of the most popular sections. It demystifies what inspectors look for, how to prepare your home and documentation, and why it's far less intimidating than it sounds.</div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="https://johnee1212.github.io/AA/AdoptionAcademy_Logo_r3.jpg" alt="Adoption Academy Logo">
+  <p>The Complete Guide to Domestic Adoption &nbsp;·&nbsp; <a href="https://www.amazon.com/dp/B0GTJ5TM7W" target="_blank">Amazon Kindle</a> &nbsp;·&nbsp; <a href="https://adoptionacademy.gumroad.com/l/pkgmqg" target="_blank">Gumroad PDF</a></p>
+  <p>© 2025 Adoption Academy. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
