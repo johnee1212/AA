@@ -61,6 +61,8 @@
     white-space: nowrap;
   }
   .nav-cta:hover { background: var(--orange-lt); transform: translateY(-1px); }
+  .nav-cta .short { display: none; }
+  .nav-cta .full { display: inline; }
 
   /* ── HERO ── */
   .hero {
@@ -356,7 +358,9 @@
     nav { padding: 8px 16px; min-height: 60px; }
     .nav-logo img { height: 36px; }
     .nav-logo-name { font-size: 0.9rem; }
-    .nav-cta { padding: 8px 16px; font-size: 0.82rem; }
+    .nav-cta { padding: 8px 12px; font-size: 0.78rem; }
+    .nav-cta .full { display: none; }
+    .nav-cta .short { display: inline; }
     .hero { grid-template-columns: 1fr; padding: 80px 32px 60px; margin-top: 60px; text-align: center; gap: 50px; }
     .hero-sub { margin: 0 auto 40px; }
     .hero-btns { justify-content: center; }
@@ -451,7 +455,7 @@
   </a>
   <div class="nav-right">
     <a href="whats-inside.html" class="nav-link">What's Inside</a>
-    <a href="https://adoptionacademy.gumroad.com/l/pkgmqg" target="_blank" class="nav-cta">Get the Book →</a>
+    <a href="https://adoptionacademy.gumroad.com/l/pkgmqg" target="_blank" class="nav-cta"><span class="full">Get the Book →</span><span class="short">Buy →</span></a>
   </div>
 </nav>
 

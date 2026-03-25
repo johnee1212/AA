@@ -36,6 +36,8 @@ nav {
 .nav-link:hover { color: var(--navy); }
 .nav-cta { background: var(--orange); color: white; text-decoration: none; padding: 10px 24px; border-radius: 6px; font-size: 0.88rem; font-weight: 700; box-shadow: 0 3px 12px rgba(196,87,42,0.35); transition: background 0.2s; white-space: nowrap; }
 .nav-cta:hover { background: var(--orange-lt); }
+.nav-cta .short { display: none; }
+.nav-cta .full { display: inline; }
 
 /* HERO */
 .hero {
@@ -231,7 +233,9 @@ footer a:hover { color: var(--teal-lt); }
   nav { padding: 8px 16px; min-height: 60px; }
   .nav-logo img { height: 36px; }
   .nav-logo-name { font-size: 0.9rem; }
-  .nav-cta { padding: 8px 16px; font-size: 0.82rem; }
+  .nav-cta { padding: 8px 12px; font-size: 0.78rem; }
+  .nav-cta .full { display: none; }
+  .nav-cta .short { display: inline; }
   .hero { grid-template-columns: 1fr; margin-top: 60px; padding: 40px 24px 48px; }
   .hero-book { display: none; }
   .intro-strip, .expect-strip, .gallery-section, .dyk, .cta, footer { padding-left: 24px; padding-right: 24px; }
@@ -257,7 +261,7 @@ footer a:hover { color: var(--teal-lt); }
   </a>
   <div class="nav-right">
     <a href="index.html" class="nav-link">← Back to Overview</a>
-    <a href="https://adoptionacademy.gumroad.com/l/pkgmqg" target="_blank" class="nav-cta">Get the Book →</a>
+    <a href="https://adoptionacademy.gumroad.com/l/pkgmqg" target="_blank" class="nav-cta"><span class="full">Get the Book →</span><span class="short">Buy →</span></a>
   </div>
 </nav>
 
