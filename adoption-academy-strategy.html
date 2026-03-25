@@ -1,0 +1,2261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adoption Academy — Organic Marketing Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #2e4057;
+    --orange: #c4572a;
+    --teal: #5aabab;
+    --teal-light: #e8f5f5;
+    --navy-light: #eef1f5;
+    --orange-light: #fdf0eb;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --light-gray: #f8f9fa;
+    --border: #e2e8f0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--light-gray);
+    color: var(--navy);
+    min-height: 100vh;
+  }
+
+  header {
+    background: var(--navy);
+    padding: 40px 24px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(90,171,171,0.15);
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    background: rgba(196,87,42,0.12);
+  }
+
+  .header-badge {
+    display: inline-block;
+    background: var(--teal);
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 5vw, 36px);
+    color: white;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  header p {
+    color: rgba(255,255,255,0.7);
+    font-size: 15px;
+    font-weight: 300;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .progress-bar-wrap {
+    background: var(--navy);
+    padding: 0 24px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .progress-label {
+    color: rgba(255,255,255,0.6);
+    font-size: 12px;
+    white-space: nowrap;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .progress-track {
+    flex: 1;
+    height: 6px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--teal);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  .progress-count {
+    color: var(--teal);
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 32px 16px 60px;
+  }
+
+  /* Phase blocks */
+  .phase {
+    margin-bottom: 12px;
+  }
+
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--navy);
+    color: white;
+    padding: 16px 20px;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+
+  .phase-header:hover { background: #3a5070; }
+
+  .phase-header.collapsed {
+    border-radius: 10px;
+    margin-bottom: 0;
+  }
+
+  .phase-icon {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .phase-title-group { flex: 1; }
+
+  .phase-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  .phase-subtitle {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+    margin-top: 2px;
+  }
+
+  .phase-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .phase-count {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .phase-chevron {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    transition: transform 0.3s;
+  }
+
+  .phase-header.collapsed .phase-chevron { transform: rotate(-90deg); }
+
+  .phase-body {
+    background: white;
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+  }
+
+  /* Channel sections inside a phase */
+  .channel-section {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .channel-section:last-child { border-bottom: none; }
+
+  .channel-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    cursor: pointer;
+    user-select: none;
+    background: white;
+    transition: background 0.15s;
+  }
+
+  .channel-header:hover { background: var(--light-gray); }
+
+  .channel-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .channel-name {
+    font-weight: 700;
+    font-size: 14px;
+    flex: 1;
+    letter-spacing: 0.3px;
+  }
+
+  .channel-progress {
+    font-size: 11px;
+    color: var(--gray);
+    margin-right: 6px;
+  }
+
+  .channel-chevron {
+    font-size: 10px;
+    color: var(--gray);
+    transition: transform 0.25s;
+  }
+
+  .channel-header.open .channel-chevron { transform: rotate(90deg); }
+
+  .channel-items {
+    display: none;
+    padding: 4px 20px 16px 42px;
+  }
+
+  .channel-items.open { display: block; }
+
+  /* Checklist items */
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px solid #f1f5f9;
+    cursor: pointer;
+    transition: background 0.1s;
+    border-radius: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .check-item:last-child { border-bottom: none; }
+
+  .check-item:hover { background: var(--light-gray); }
+
+  .check-box {
+    width: 20px; height: 20px;
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+    font-size: 11px;
+    color: white;
+  }
+
+  .check-item.done .check-box {
+    background: var(--teal);
+    border-color: var(--teal);
+  }
+
+  .check-item.done .check-box::after { content: '✓'; }
+
+  .check-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #374151;
+    flex: 1;
+  }
+
+  .check-item.done .check-text {
+    color: #9ca3af;
+    text-decoration: line-through;
+    text-decoration-color: var(--teal);
+  }
+
+  .check-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+
+  .tag-setup { background: var(--navy-light); color: var(--navy); }
+  .tag-content { background: var(--teal-light); color: #2d7a7a; }
+  .tag-engage { background: var(--orange-light); color: var(--orange); }
+  .tag-track { background: #fef9c3; color: #854d0e; }
+
+  /* Legend */
+  .legend {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    padding: 14px 18px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--gray);
+  }
+
+  .legend-tag { padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; letter-spacing: 1px; }
+
+  /* AI Workflow Panel */
+  .ai-panel {
+    margin: 0 0 0 0;
+    border-top: 2px dashed #e2e8f0;
+    background: #f9fafb;
+  }
+
+  .ai-panel-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px 10px 42px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s;
+  }
+
+  .ai-panel-header:hover { background: #f1f5f9; }
+
+  .ai-badge {
+    background: linear-gradient(135deg, #7c3aed, #5b21b6);
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 10px;
+  }
+
+  .ai-panel-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #7c3aed;
+    flex: 1;
+  }
+
+  .ai-panel-chevron {
+    font-size: 10px;
+    color: #7c3aed;
+    transition: transform 0.25s;
+  }
+
+  .ai-panel-header.open .ai-panel-chevron { transform: rotate(90deg); }
+
+  .ai-panel-body {
+    display: none;
+    padding: 12px 20px 16px 42px;
+  }
+
+  .ai-panel-body.open { display: block; }
+
+  .ai-tool-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .ai-tool-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .ai-tool-text { font-size: 13px; color: #374151; line-height: 1.5; }
+  .ai-tool-text strong { color: var(--navy); }
+
+  .ai-tool-link {
+    display: inline-block;
+    margin-top: 3px;
+    font-size: 11px;
+    color: #7c3aed;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+
+  .ai-tool-link:hover { text-decoration: underline; }
+
+  .keyword-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 8px 0 12px;
+  }
+
+  .keyword-chip {
+    background: var(--navy-light);
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.15s;
+    user-select: none;
+  }
+
+  .keyword-chip:hover { background: #d1dce8; }
+  .keyword-chip.copied { background: var(--teal-light); color: #2d7a7a; }
+
+  .prompt-box {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-left: 3px solid #7c3aed;
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin: 10px 0;
+    position: relative;
+  }
+
+  .prompt-box pre {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    color: #374151;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0;
+  }
+
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 8px;
+    background: #7c3aed;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    transition: background 0.2s;
+  }
+
+  .copy-btn:hover { background: #5b21b6; }
+  .copy-btn.copied { background: var(--teal); }
+
+  .ai-section-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #7c3aed;
+    margin: 12px 0 6px;
+  }
+
+  .ai-divider {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 12px 0;
+  }
+
+  /* Reset button */
+  .reset-btn {
+    display: block;
+    margin: 32px auto 0;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--gray);
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .reset-btn:hover { border-color: var(--orange); color: var(--orange); }
+
+  /* Completion banner */
+  .completion-banner {
+    display: none;
+    background: linear-gradient(135deg, var(--teal), #3d8f8f);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+  }
+
+  .completion-banner p {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    margin-top: 6px;
+    font-weight: 300;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-badge">Organic Marketing Strategy</div>
+  <h1>Adoption Academy</h1>
+  <p>Organic Social Media Strategy & AI Agent Playbook</p>
+</header>
+
+<div class="progress-bar-wrap">
+  <span class="progress-label">Progress</span>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <span class="progress-count" id="progressCount">0 / 0</span>
+</div>
+
+<main>
+
+  <div class="legend">
+    <span class="legend-item"><span class="legend-tag tag-setup">Setup</span> One-time account/profile tasks</span>
+    <span class="legend-item"><span class="legend-tag tag-content">Content</span> Publishing & creative</span>
+    <span class="legend-item"><span class="legend-tag tag-engage">Engage</span> Community interaction</span>
+    <span class="legend-item"><span class="legend-tag tag-track">Track</span> Analytics & optimization</span>
+  </div>
+
+  <!-- SETUP SECTION -->
+  <div class="phase">
+    <div class="phase-header" onclick="togglePhase(this)">
+      <div class="phase-icon" style="background:rgba(196,87,42,0.2)">⚙️</div>
+      <div class="phase-title-group">
+        <div class="phase-title">Setup — Accounts, Tools & Services</div>
+        <div class="phase-subtitle">Complete before Day 1 · Every account, tool, and service you need to run this strategy</div>
+      </div>
+      <div class="phase-meta">
+        <span class="phase-count"></span>
+        <span class="phase-chevron">▼</span>
+      </div>
+    </div>
+    <div class="phase-body">
+
+      <!-- Social Accounts -->
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#5aabab"></div>
+          <div class="channel-name">Social Media Accounts</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Reddit — create account "AdoptionAcademy" at reddit.com/register</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Pinterest — create Business Account at pinterest.com/business/create</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Instagram — create Business Account @AdoptionAcademy at instagram.com</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">X (Twitter) — create account @AdoptionAcademy at x.com</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">TikTok — create Business Account @AdoptionAcademy at tiktok.com</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">YouTube — create channel "Adoption Academy" at youtube.com/create_channel</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Upload the Adoption Academy logo to every account as profile photo</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Add adoptionacademy.com to the website/link field on every account</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Use consistent navy (#2e4057) header/banner images across all accounts that support them</div><span class="check-tag tag-setup">Setup</span></div>
+        </div>
+      </div>
+
+      <!-- Tools & Services -->
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#7c3aed"></div>
+          <div class="channel-name">Tools & Services</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">F5Bot — sign up and enter all keyword alerts at f5bot.com (free)</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Moda — confirm account is active and enter brand colors (navy #2e4057, orange #c4572a, teal #5aabab) and upload logo at moda.app</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">CapCut — download app or use web version, confirm watermark-free export is enabled at capcut.com (free)</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Buffer — create account and connect all six channels: Reddit (not supported — manual), Pinterest, Instagram, X, TikTok, YouTube at buffer.com (free tier)</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Claude — confirm access at claude.ai — this is your primary AI writing tool for all copy, prompts, and scripts</div><span class="check-tag tag-setup">Setup</span></div>
+        </div>
+      </div>
+
+      <!-- Gumroad & Tracking -->
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#c4572a"></div>
+          <div class="channel-name">Gumroad & Link Tracking</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Log into Gumroad and confirm the product listing is live and the PDF download is working</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Create a unique UTM tracking link for each channel using Google's Campaign URL Builder — so you know exactly which platform drives sales. Format: adoptionacademy.gumroad.com/l/pkgmqg?utm_source=reddit (replace reddit with each channel)</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Save all six UTM links in one document — use the correct one in each channel's bio and posts</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Install Google Analytics on adoptionacademy.com to track which channels drive website visits (free at analytics.google.com)</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Verify the Kindle listing on Amazon is live and the description matches the Gumroad listing</div><span class="check-tag tag-setup">Setup</span></div>
+        </div>
+      </div>
+
+      <!-- Brand Voice Reference -->
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#2e4057"></div>
+          <div class="channel-name">Brand Voice Reference Card</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Read and internalize the brand voice guidelines below before writing any content or running any Claude prompts</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Paste the brand voice card into every new Claude conversation as context before running any content prompts</div><span class="check-tag tag-setup">Setup</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">Adoption Academy — Brand Voice Reference Card</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">📋</div>
+              <div class="ai-tool-text">Paste this card at the top of any Claude conversation before running content prompts. It ensures every output stays on-brand across all six channels.</div>
+            </div>
+            <hr class="ai-divider">
+            <div class="prompt-box">
+              <pre id="brandVoiceCard">ADOPTION ACADEMY — BRAND VOICE REFERENCE
+
+Brand: Adoption Academy
+Product: The Complete Guide to Domestic Adoption — 237-page illustrated PDF guide, $19.99
+Audience: Prospective adoptive parents in the U.S. — from early research stage to families already working with an agency. Many are coming from infertility or pregnancy loss.
+Colors: Navy #2e4057, Orange #c4572a, Teal #5aabab
+Fonts: Playfair Display (headings), Lato (body)
+
+TONE:
+- Warm, empathetic, and plain-language — like a knowledgeable friend, not a textbook
+- Acknowledge the emotional weight of adoption before providing information
+- Never clinical, never condescending, never salesy
+- Direct and specific — vague answers lose trust in this community
+- Encouraging without being saccharine
+
+WORDS TO USE:
+- "prospective adoptive parents" not "hopeful parents" (too passive)
+- "domestic adoption" not just "adoption" — always be specific
+- "birth father" and "birth mother" — not "biological" in casual copy
+- "guide" or "resource" — not "book" or "product"
+- "adoptionacademy.com" — always lowercase
+
+WORDS TO AVOID:
+- "journey" used as a noun on its own (overused in this niche)
+- "excited" — too light for the emotional weight of adoption
+- "simple" or "easy" — adoption is neither, don't minimize it
+- Passive voice — be direct
+- Jargon: ICPC, UCCJEA, TPR — spell out in full on first use
+
+CONTENT RULES:
+- Never mention price in organic content — let the website do that
+- Never promote the guide directly in Reddit comments — link only in profile bio
+- Always end Reddit replies with a sentence of encouragement
+- Carousels and pins must be useful standalone — not teasers that require clicking
+- TikTok hooks: punchy, surprising, under 8 words — no "hey guys", no slow build
+- Every piece of content must pass this test: would a prospective adoptive parent save or share this?
+
+SENSITIVE TOPICS — HANDLE WITH CARE:
+- Failed adoptions: acknowledge grief before providing information
+- Infertility and loss: never assume — let the audience self-identify
+- Birth parent relationships: always treat with dignity and nuance
+- Scams: be factual and protective, not alarmist</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('brandVoiceCard', this)">⎘ Copy Brand Voice Card</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weekly Content Calendar -->
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#5aabab"></div>
+          <div class="channel-name">Weekly Content Calendar</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Save this weekly rhythm and use it as your posting schedule every week during the 90-day test</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Queue X threads and standalone tweets in Buffer every Monday for the week ahead</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Produce TikTok/YouTube Shorts in a batch — aim for all 3 videos in one production session per week</div><span class="check-tag tag-setup">Setup</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">Weekly Posting Rhythm — 6 Channels, ~90 Min/Week Production</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+
+            <div style="overflow-x:auto;">
+              <table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:12px;">
+                <thead>
+                  <tr style="background:var(--navy);color:white;">
+                    <th style="padding:8px 10px;text-align:left;border-radius:6px 0 0 0;">Day</th>
+                    <th style="padding:8px 10px;text-align:left;">Channel</th>
+                    <th style="padding:8px 10px;text-align:left;">Action</th>
+                    <th style="padding:8px 10px;text-align:left;border-radius:0 6px 0 0;">Est. Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="background:#f9fafb;">
+                    <td style="padding:8px 10px;font-weight:700;color:var(--navy);">Monday</td>
+                    <td style="padding:8px 10px;">X (Twitter)</td>
+                    <td style="padding:8px 10px;">Post 1 thread (Claude-written, Buffer-scheduled) + queue 4 standalone tweets for Tue–Fri</td>
+                    <td style="padding:8px 10px;color:var(--gray);">20 min</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:8px 10px;font-weight:700;color:var(--navy);">Tuesday</td>
+                    <td style="padding:8px 10px;">TikTok + YouTube</td>
+                    <td style="padding:8px 10px;">Post Video 1 (text-overlay) → same day upload to YouTube Shorts with SEO package</td>
+                    <td style="padding:8px 10px;color:var(--gray);">30 min</td>
+                  </tr>
+                  <tr style="background:#f9fafb;">
+                    <td style="padding:8px 10px;font-weight:700;color:var(--navy);">Wednesday</td>
+                    <td style="padding:8px 10px;">Instagram</td>
+                    <td style="padding:8px 10px;">Post carousel (Moda-designed, Claude copy) + 1 Story poll or Q&A</td>
+                    <td style="padding:8px 10px;color:var(--gray);">20 min</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:8px 10px;font-weight:700;color:var(--navy);">Wednesday</td>
+                    <td style="padding:8px 10px;">Pinterest</td>
+                    <td style="padding:8px 10px;">Publish 2 pins with Claude-written SEO descriptions</td>
+                    <td style="padding:8px 10px;color:var(--gray);">10 min</td>
+                  </tr>
+                  <tr style="background:#f9fafb;">
+                    <td style="padding:8px 10px;font-weight:700;color:var(--navy);">Thursday</td>
+                    <td style="padding:8px 10px;">TikTok + YouTube</td>
+                    <td style="padding:8px 10px;">Post Video 2 → same day YouTube Shorts upload</td>
+                    <td style="padding:8px 10px;color:var(--gray);">15 min</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:8px 10px;font-weight:700;color:var(--navy);">Thursday</td>
+                    <td style="padding:8px 10px;">Pinterest</td>
+                    <td style="padding:8px 10px;">Publish 2 more pins</td>
+                    <td style="padding:8px 10px;color:var(--gray);">10 min</td>
+                  </tr>
+                  <tr style="background:#f9fafb;">
+                    <td style="padding:8px 10px;font-weight:700;color:var(--navy);">Friday</td>
+                    <td style="padding:8px 10px;">Instagram</td>
+                    <td style="padding:8px 10px;">Post 1 Reel (text-overlay, CapCut) + 1 Story</td>
+                    <td style="padding:8px 10px;color:var(--gray);">20 min</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:8px 10px;font-weight:700;color:var(--navy);">Friday</td>
+                    <td style="padding:8px 10px;">TikTok + YouTube</td>
+                    <td style="padding:8px 10px;">Post Video 3 → same day YouTube Shorts upload</td>
+                    <td style="padding:8px 10px;color:var(--gray);">15 min</td>
+                  </tr>
+                  <tr style="background:#f9fafb;">
+                    <td style="padding:8px 10px;font-weight:700;color:var(--navy);">Daily</td>
+                    <td style="padding:8px 10px;">Reddit</td>
+                    <td style="padding:8px 10px;">Check F5Bot alerts → answer 1–2 questions using Claude reply prompt → post manually</td>
+                    <td style="padding:8px 10px;color:var(--gray);">10 min/day</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="background:var(--navy-light);border-radius:6px;padding:10px 12px;margin-top:4px;">
+              <p style="font-size:12px;color:var(--navy);font-weight:700;margin-bottom:4px;">Weekly totals</p>
+              <p style="font-size:12px;color:#374151;">X: 1 thread + 4 tweets &nbsp;·&nbsp; TikTok: 3 videos &nbsp;·&nbsp; YouTube Shorts: 3 &nbsp;·&nbsp; Instagram: 2 carousels + 2 stories + 1 reel &nbsp;·&nbsp; Pinterest: 4 pins &nbsp;·&nbsp; Reddit: 7–14 answers</p>
+              <p style="font-size:12px;color:#374151;margin-top:4px;">Production time: ~2 hours/week excluding Reddit daily check-ins</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase">
+    <div class="phase-header" onclick="togglePhase(this)">
+      <div class="phase-icon" style="background:rgba(90,171,171,0.2)">🚀</div>
+      <div class="phase-title-group">
+        <div class="phase-title">Phase 1 — Foundation</div>
+        <div class="phase-subtitle">Days 1–7 · Set up every channel correctly before posting anything</div>
+      </div>
+      <div class="phase-meta">
+        <span class="phase-count" id="count-p1"></span>
+        <span class="phase-chevron">▼</span>
+      </div>
+    </div>
+    <div class="phase-body">
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#ff6314"></div>
+          <div class="channel-name">Reddit</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Create a Reddit account named "AdoptionAcademy" or "Adoption_Academy"</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Complete the profile bio: brief description of Adoption Academy + link to adoptionacademy.com</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Subscribe to r/adoption, r/infertility, r/IVF, r/Parenting, r/NewParents</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Read each subreddit's rules — note which ones prohibit self-promotion or brand accounts</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Spend 3 days lurking only — identify the top 10 recurring questions in r/adoption</div><span class="check-tag tag-engage">Engage</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">Reddit AI Workflow — Tools, Keywords & Prompt Template</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">🔔</div>
+              <div class="ai-tool-text">
+                <strong>F5Bot</strong> — Free Reddit keyword alert tool. Set it up once and get emailed every time a matching post appears in your target subreddits. No account scraping, no API — fully compliant.<br>
+                <a class="ai-tool-link" href="https://f5bot.com" target="_blank">→ f5bot.com (free)</a>
+              </div>
+            </div>
+
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">🤖</div>
+              <div class="ai-tool-text">
+                <strong>Claude</strong> — Use to draft replies once F5Bot surfaces a relevant post. Paste the Reddit question + the prompt template below. Review, edit for tone, post manually.
+              </div>
+            </div>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">F5Bot Keyword List — paste each into F5Bot</div>
+            <div class="keyword-grid" id="kwGrid">
+              <span class="keyword-chip" onclick="copyChip(this)">domestic adoption</span>
+              <span class="keyword-chip" onclick="copyChip(this)">home study</span>
+              <span class="keyword-chip" onclick="copyChip(this)">adoption agency</span>
+              <span class="keyword-chip" onclick="copyChip(this)">waiting to adopt</span>
+              <span class="keyword-chip" onclick="copyChip(this)">adoptive parents</span>
+              <span class="keyword-chip" onclick="copyChip(this)">birth father rights</span>
+              <span class="keyword-chip" onclick="copyChip(this)">adoption attorney</span>
+              <span class="keyword-chip" onclick="copyChip(this)">failed adoption</span>
+              <span class="keyword-chip" onclick="copyChip(this)">adoption match</span>
+              <span class="keyword-chip" onclick="copyChip(this)">considering adoption</span>
+              <span class="keyword-chip" onclick="copyChip(this)">adoption process</span>
+              <span class="keyword-chip" onclick="copyChip(this)">open adoption</span>
+              <span class="keyword-chip" onclick="copyChip(this)">closed adoption</span>
+              <span class="keyword-chip" onclick="copyChip(this)">adoption costs</span>
+              <span class="keyword-chip" onclick="copyChip(this)">adoption scam</span>
+              <span class="keyword-chip" onclick="copyChip(this)">adoption tax credit</span>
+              <span class="keyword-chip" onclick="copyChip(this)">interstate adoption</span>
+              <span class="keyword-chip" onclick="copyChip(this)">ICPC adoption</span>
+              <span class="keyword-chip" onclick="copyChip(this)">infertility and adoption</span>
+              <span class="keyword-chip" onclick="copyChip(this)">IVF failed adoption</span>
+              <span class="keyword-chip" onclick="copyChip(this)">after infertility adoption</span>
+            </div>
+            <p style="font-size:11px;color:#9ca3af;margin-bottom:10px;">Click any keyword to copy it. Add to F5Bot one at a time under "Keywords to track."</p>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt Template — Reddit Reply Drafting</div>
+            <div class="prompt-box">
+              <pre id="redditPrompt">You are a knowledgeable, warm, and plain-spoken adoption resource assistant. Your job is to write a helpful Reddit reply to a question about domestic adoption in the U.S.
+
+Guidelines:
+- Write in a natural, conversational Reddit tone — not clinical, not salesy
+- Be empathetic first — acknowledge the emotional weight of the question before answering
+- Be specific and genuinely useful — vague answers get ignored on Reddit
+- Never mention or promote any product or book
+- Cover these topics if relevant: home study process, birth father rights, agency vs attorney, costs, timelines, open vs closed adoption, adoption tax credit, failed adoptions, state law differences, scams to avoid
+- Aim for 150–250 words — thorough but not overwhelming
+- End with one sentence of encouragement — this community is going through something hard
+
+Here is the Reddit post to respond to:
+[PASTE POST HERE]</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('redditPrompt', this)">⎘ Copy Prompt</button>
+            <p style="font-size:11px;color:#9ca3af;margin-top:8px;">Always review the AI draft before posting. Edit for tone — it must sound human and empathetic, not generated.</p>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#e60023"></div>
+          <div class="channel-name">Pinterest</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Create a Pinterest Business Account under the Adoption Academy brand</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Add profile logo, navy background header, and keyword-rich bio ("domestic adoption guide, home study, adoptive parents")</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Claim adoptionacademy.com in Pinterest settings to enable analytics on outbound clicks</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Create 6 boards: "Domestic Adoption Process," "Home Study Tips," "Adoption Costs & Finances," "Birth Parent Rights," "Adoptive Parent Resources," "Adoption Laws by State"</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Research top Pinterest keywords for adoption using the Pinterest search bar autocomplete</div><span class="check-tag tag-track">Track</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">Pinterest AI Workflow — Setup: Board Descriptions & Brand Config</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">🎨</div>
+              <div class="ai-tool-text">
+                <strong>Moda</strong> — Your design tool for all Pinterest pin graphics. Input your brand colors (navy #2e4057, orange #c4572a, teal #5aabab) and logo once, then generate editable social post designs from Claude-written copy.<br>
+                <a class="ai-tool-link" href="https://moda.app" target="_blank">→ moda.app</a>
+              </div>
+            </div>
+
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">🤖</div>
+              <div class="ai-tool-text">
+                <strong>Claude</strong> — Use to write all board descriptions and pin copy before taking into Moda to design. Claude handles the words; Moda handles the visuals.
+              </div>
+            </div>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Write All 6 Board Descriptions</div>
+            <div class="prompt-box">
+              <pre id="pinterestBoardsPrompt">Write Pinterest board descriptions for Adoption Academy, a domestic adoption education brand. Each description should be keyword-rich, 150–200 characters, written like a search query a prospective adoptive parent would type. Warm and plain-language tone. No promotional language.
+
+Write descriptions for these 6 boards:
+1. Domestic Adoption Process
+2. Home Study Tips
+3. Adoption Costs & Finances
+4. Birth Parent Rights
+5. Adoptive Parent Resources
+6. Adoption Laws by State
+
+For each board also suggest 5 keyword tags to add in Pinterest settings.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('pinterestBoardsPrompt', this)">⎘ Copy Prompt</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#e1306c"></div>
+          <div class="channel-name">Instagram</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Create an Instagram Business account @AdoptionAcademy (or closest available handle)</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Upload the shield/A-mark logo as profile photo</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Write bio: "The complete guide to domestic adoption in the U.S. 237 pages. 50+ visuals. $19.99." + link to adoptionacademy.com</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Identify and follow 10–15 adoption-related hashtags to monitor: #domesticadoption #adoptiveparents #adoptioncommunity #waitingtoadopt #homestudy</div><span class="check-tag tag-setup">Setup</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">Instagram AI Workflow — Setup: Bio, Hashtag Strategy & Content Plan</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">🎨</div>
+              <div class="ai-tool-text"><strong>Moda</strong> — Design all carousel slides and graphics. Set your brand colors and logo once, then generate editable layouts from Claude-written copy.<br><a class="ai-tool-link" href="https://moda.app" target="_blank">→ moda.app</a></div>
+            </div>
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">🎬</div>
+              <div class="ai-tool-text"><strong>CapCut</strong> — Free Reels editor. Use stock video library + text overlay feature. No face, no recording required.<br><a class="ai-tool-link" href="https://www.capcut.com" target="_blank">→ capcut.com (free)</a></div>
+            </div>
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">🤖</div>
+              <div class="ai-tool-text"><strong>Claude</strong> — Writes all copy: carousel outlines, captions, hashtag sets, story prompts, and reel scripts before you design or record anything.</div>
+            </div>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Write Instagram Bio</div>
+            <div class="prompt-box">
+              <pre id="igBioPrompt">Write 3 versions of an Instagram bio for Adoption Academy, a domestic adoption education brand. The bio must:
+- Be under 150 characters
+- Clearly state what the brand offers and who it's for
+- Include a soft call to action (link in bio)
+- Tone: warm, professional, plain-language — not salesy
+- No emojis unless they genuinely add clarity
+
+Brand: Adoption Academy — a 237-page illustrated guide to domestic adoption in the U.S. targeting prospective adoptive parents at any stage of the journey.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('igBioPrompt', this)">⎘ Copy Prompt</button>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Build Master Hashtag Set</div>
+            <div class="prompt-box">
+              <pre id="igHashtagPrompt">Build a master Instagram hashtag strategy for Adoption Academy, a domestic adoption education brand targeting prospective adoptive parents in the U.S.
+
+Create 4 hashtag groups of 10–15 tags each:
+1. Core adoption hashtags (high volume, always use)
+2. Niche adoption hashtags (lower volume, higher intent)
+3. Infertility-to-adoption crossover hashtags
+4. Educational content hashtags (for carousel and guide posts)
+
+Format each group as a ready-to-paste block. Note approximate follower count range for each group (small/medium/large) so I can mix strategically.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('igHashtagPrompt', this)">⎘ Copy Prompt</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#000000"></div>
+          <div class="channel-name">X (Twitter)</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Create an X account @AdoptionAcademy with logo, navy header image, and bio</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Add adoptionacademy.com to the profile URL field</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Follow and monitor hashtags: #adoption #domesticadoption #adoptiveparents #infertility #homestudy</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Pin a launch tweet to the profile: what Adoption Academy is and who it's for</div><span class="check-tag tag-content">Content</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">X AI Workflow — Setup: Bio, Launch Tweet & Buffer</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">📅</div>
+              <div class="ai-tool-text">
+                <strong>Buffer</strong> — Free scheduling tool. Connect your X account, queue threads and standalone tweets in advance, and publish on a consistent schedule without manual daily posting. Free tier covers X and multiple other channels.<br>
+                <a class="ai-tool-link" href="https://buffer.com" target="_blank">→ buffer.com (free tier available)</a>
+              </div>
+            </div>
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">🤖</div>
+              <div class="ai-tool-text"><strong>Claude</strong> — Writes all thread copy, standalone tweets, and the pinned launch tweet. Buffer schedules and publishes. You handle live replies and hashtag engagement manually.</div>
+            </div>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Write X Bio + Pinned Launch Tweet</div>
+            <div class="prompt-box">
+              <pre id="xSetupPrompt">Write two things for Adoption Academy's X (Twitter) profile:
+
+1. X Bio (under 160 characters): clear, warm, and plain-language. States what Adoption Academy is and who it's for. No hashtags in the bio. Include "adoptionacademy.com" as the final element.
+
+2. Pinned launch tweet (under 280 characters): introduces Adoption Academy to the adoption community. Should feel like a genuine community contribution, not an ad. Warm and direct. End with a soft invitation to follow for adoption guidance.
+
+Brand tone: empathetic, professional, plain-language. No hard sell.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('xSetupPrompt', this)">⎘ Copy Prompt</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#010101"></div>
+          <div class="channel-name">TikTok</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Create a TikTok Business account @AdoptionAcademy</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Add logo, bio, and website link</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Spend 2 days watching #adoptiontok and #domesticadoption to understand what formats and topics perform</div><span class="check-tag tag-engage">Engage</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Identify 3 text-overlay or voiceover video formats you can produce without appearing on camera</div><span class="check-tag tag-setup">Setup</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">TikTok AI Workflow — Setup: Bio, Content Strategy & CapCut</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">🎬</div>
+              <div class="ai-tool-text">
+                <strong>CapCut</strong> — Free video editor with built-in stock footage library, text overlay tools, and auto-caption generation. No face, no recording required. Use stock video as background, layer Claude-written text on top.<br>
+                <a class="ai-tool-link" href="https://www.capcut.com" target="_blank">→ capcut.com (free)</a>
+              </div>
+            </div>
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">🤖</div>
+              <div class="ai-tool-text"><strong>Claude</strong> — Writes all video scripts in text-overlay format: hook text, screen-by-screen content, CTA. You take the script into CapCut, find matching stock footage, layer the text, and publish.</div>
+            </div>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Write TikTok Bio</div>
+            <div class="prompt-box">
+              <pre id="ttBioPrompt">Write 3 versions of a TikTok bio for Adoption Academy, a domestic adoption education brand. Each bio must:
+- Be under 80 characters (TikTok bio limit)
+- Clearly state what the account offers and who it's for
+- Feel warm and community-oriented, not corporate
+- No hard sell
+
+Brand: Adoption Academy — plain-language domestic adoption guidance for prospective adoptive parents in the U.S.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('ttBioPrompt', this)">⎘ Copy Prompt</button>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Generate First 10 Video Concepts</div>
+            <div class="prompt-box">
+              <pre id="ttConceptsPrompt">Generate 10 TikTok video concepts for Adoption Academy targeting prospective adoptive parents in the U.S. All videos must work without a face on camera — text overlay on stock footage only.
+
+For each concept provide:
+- Hook text (appears in first 2 seconds — must stop the scroll, under 8 words)
+- Video format: myth-buster / explainer / checklist / storytime-style / contrarian take
+- Content outline (4–6 screen-by-screen points)
+- Stock footage search term to use in CapCut
+- Relevant hashtags (5–7)
+
+Priority topics: home study process, birth father rights, adoption costs, agency vs attorney, failed matches, open vs closed adoption, scams to avoid, adoption tax credit, state law differences.
+
+Rank by estimated virality potential for #adoptiontok.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('ttConceptsPrompt', this)">⎘ Copy Prompt</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#ff0000"></div>
+          <div class="channel-name">YouTube Shorts</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Create a YouTube channel for Adoption Academy — use same logo, navy banner, and brand description</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Write a keyword-rich channel description including: domestic adoption, home study, adoptive parents, adoption guide, adoption tax credit</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">In CapCut, confirm watermark-free export is enabled before producing any videos — YouTube penalizes TikTok-watermarked Shorts</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Add adoptionacademy.com to the YouTube channel links section</div><span class="check-tag tag-setup">Setup</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">YouTube Shorts AI Workflow — Setup: Channel Description & SEO Foundation</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">▶️</div>
+              <div class="ai-tool-text"><strong>YouTube Shorts</strong> — Repurpose every TikTok video same-day. The key difference: YouTube indexes Shorts in search, meaning adoption-related searches can surface your content for months or years. SEO on every upload is non-negotiable.</div>
+            </div>
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">⚠️</div>
+              <div class="ai-tool-text"><strong>Critical:</strong> Always export from CapCut without the TikTok watermark. In CapCut go to Export → uncheck "Add watermark" before saving. YouTube's algorithm actively suppresses watermarked Shorts.</div>
+            </div>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Write YouTube Channel Description</div>
+            <div class="prompt-box">
+              <pre id="ytChannelPrompt">Write a YouTube channel description for Adoption Academy. Requirements:
+- 200–300 words
+- Keyword-rich for YouTube search: domestic adoption, home study, adoptive parents, adoption process, adoption costs, birth father rights, open adoption, closed adoption, adoption tax credit
+- Warm and plain-language — written for prospective adoptive parents at any stage of the journey
+- First 2 sentences are critical — they show above the fold in search results, make them count
+- End with a soft CTA to subscribe and visit adoptionacademy.com
+- No promotional language about price or the guide specifically</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('ytChannelPrompt', this)">⎘ Copy Prompt</button>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase">
+    <div class="phase-header" onclick="togglePhase(this)">
+      <div class="phase-icon" style="background:rgba(196,87,42,0.2)">📣</div>
+      <div class="phase-title-group">
+        <div class="phase-title">Phase 2 — First Content Push</div>
+        <div class="phase-subtitle">Days 8–30 · Establish cadence and post for the first time on every channel</div>
+      </div>
+      <div class="phase-meta">
+        <span class="phase-count" id="count-p2"></span>
+        <span class="phase-chevron">▼</span>
+      </div>
+    </div>
+    <div class="phase-body">
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#ff6314"></div>
+          <div class="channel-name">Reddit</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Write your first detailed answer to a question in r/adoption — aim for 150+ words of genuine, useful information</div><span class="check-tag tag-engage">Engage</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Answer 1–2 questions per day in adoption-related subreddits — never link the book in comments, only in your profile bio</div><span class="check-tag tag-engage">Engage</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Focus answers on your book's unique topics: birth father rights, failed adoptions, scams, state law differences, adoption tax credit</div><span class="check-tag tag-engage">Engage</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Post one "resource share" post in r/adoption introducing the guide — frame it as a community contribution, not a sales pitch</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Log which questions receive the most replies and upvotes — these are your top content topics</div><span class="check-tag tag-track">Track</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">Reddit AI Workflow — Daily Reply Process</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">⚡</div>
+              <div class="ai-tool-text"><strong>Daily workflow (under 10 min):</strong> Check F5Bot email alerts → open the flagged Reddit post → paste into Claude with the prompt template → review and humanize the draft → post manually. Never post AI output without an editorial pass.</div>
+            </div>
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Identify Best Questions to Answer</div>
+            <div class="prompt-box">
+              <pre id="redditPrioritizePrompt">I run Adoption Academy, a domestic adoption resource brand. Below is a list of recent Reddit post titles from r/adoption and related subreddits. Identify the 3–5 posts that are best suited for a detailed, helpful reply from an adoption education brand. Prioritize posts where:
+- The person is actively in the research or decision-making phase
+- The question touches on: home study, birth father rights, agency vs attorney, costs, timelines, open/closed adoption, tax credit, failed adoptions, state law differences, or scams
+- A thorough answer would provide real value and likely get upvoted
+
+List your top picks and explain briefly why each is worth answering.
+
+Post titles:
+[PASTE LIST OF POST TITLES HERE]</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('redditPrioritizePrompt', this)">⎘ Copy Prompt</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#e60023"></div>
+          <div class="channel-name">Pinterest</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Design your first 5 pins using Moda — pull directly from the book's existing visual elements and use Claude-written copy</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">First pin topics: "Domestic Adoption Cost Breakdown," "Home Study Checklist," "Open vs. Closed Adoption," "Adoption Timeline," "Birth Father Rights Explained"</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Write keyword-rich pin descriptions (150–300 characters) for every pin — write like a Google search query, not a caption</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Link every pin to adoptionacademy.com</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Publish 3–4 pins per week — spread them out, don't batch-publish all at once</div><span class="check-tag tag-content">Content</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">Pinterest AI Workflow — Topic Ideas, Pin Copy & Moda Design Brief</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">💡</div>
+              <div class="ai-tool-text"><strong>The workflow:</strong> Claude generates pin topics + copy → you take the copy into Moda and prompt it to design a Pinterest graphic → export from Moda → publish to Pinterest with Claude-written description.</div>
+            </div>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Generate 20 Pin Topic Ideas</div>
+            <div class="prompt-box">
+              <pre id="pinterestTopicsPrompt">Generate 20 Pinterest pin topic ideas for Adoption Academy, a domestic adoption education brand targeting prospective adoptive parents in the U.S.
+
+Rules:
+- Every topic must be search-driven — something a person would literally type into Pinterest
+- Mix formats: checklists, comparison charts, step-by-step guides, myth-busters, cost breakdowns, timelines
+- Prioritize topics the book covers deeply: home study, birth father rights, agency vs attorney, adoption costs, open vs closed adoption, failed adoptions, state law differences, adoption tax credit, scams to avoid
+- No fluff, no generic parenting content — every topic must be adoption-specific
+
+Format each as: [Pin Title] | [Format Type] | [Board it belongs to]</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('pinterestTopicsPrompt', this)">⎘ Copy Prompt</button>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Write Pin Description (use per pin)</div>
+            <div class="prompt-box">
+              <pre id="pinterestDescPrompt">Write a Pinterest pin description for Adoption Academy for the following pin topic:
+
+Pin title: [INSERT PIN TITLE]
+Pin format: [e.g. checklist / comparison / step-by-step / cost breakdown]
+Target board: [INSERT BOARD NAME]
+
+Requirements:
+- 150–300 characters
+- Keyword-rich — write like a search query, not a social media caption
+- Warm, plain-language tone
+- No promotional language, no price mentions
+- End with one relevant hashtag group: #domesticadoption #adoptiveparents #homestudy
+
+Write 2 versions so I can choose the stronger one.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('pinterestDescPrompt', this)">⎘ Copy Prompt</button>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Generate Moda Design Brief</div>
+            <div class="prompt-box">
+              <pre id="pinterestModaPrompt">Write a design brief I can paste into Moda to generate a Pinterest pin graphic for Adoption Academy.
+
+Pin topic: [INSERT PIN TOPIC]
+Pin format: [e.g. checklist / comparison / infographic / step-by-step]
+
+Brand details:
+- Colors: navy #2e4057, orange #c4572a, teal #5aabab
+- Fonts: Playfair Display (headings), Lato (body)
+- Tone: warm, professional, plain-language
+- Logo: shield with A-mark, teal laurels, orange banner
+- Pinterest pin dimensions: 1000x1500px (2:3 ratio)
+
+Write the complete text content for the pin (headline, subheadline, body points) and describe the visual layout clearly so Moda can generate it accurately.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('pinterestModaPrompt', this)">⎘ Copy Prompt</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#e1306c"></div>
+          <div class="channel-name">Instagram</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Create and post your first carousel: "5 things most people get wrong about domestic adoption" — 6 slides, navy/orange/teal branded</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Post a second carousel repurposing a checklist or comparison table from the book</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Create one Reel: text-overlay format, no face required — topic: "What a home study actually involves" with on-screen bullet points</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Post a Story poll: "What's your biggest question about domestic adoption?" — use responses to plan future content</div><span class="check-tag tag-engage">Engage</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Target 4 posts per week: 2 carousels, 1 Reel, 1 Story — track saves and shares as your primary success metric</div><span class="check-tag tag-track">Track</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">Instagram AI Workflow — Carousels, Captions, Stories & Reels</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">⚡</div>
+              <div class="ai-tool-text"><strong>Content workflow:</strong> Claude writes the copy → Moda designs carousel graphics → CapCut assembles Reels → post manually with Claude-written caption + hashtags.</div>
+            </div>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Carousel Slide Outline</div>
+            <div class="prompt-box">
+              <pre id="igCarouselPrompt">Write a complete Instagram carousel outline for Adoption Academy on the following topic:
+
+Topic: [INSERT TOPIC]
+Slide count: 7 (cover + 5 content slides + CTA slide)
+
+For each slide provide:
+- Slide number and type (cover / content / CTA)
+- Headline (under 8 words, bold and punchy)
+- Body copy (2–3 sentences max, plain-language)
+- Visual direction for Moda (layout suggestion, color emphasis)
+
+Brand: navy #2e4057, orange #c4572a, teal #5aabab. Playfair Display headings, Lato body.
+Tone: warm, empathetic, educational. No promotional language until the CTA slide.
+CTA slide: soft — "Learn more at adoptionacademy.com" — no hard sell.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('igCarouselPrompt', this)">⎘ Copy Prompt</button>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Caption + Hashtags (use per post)</div>
+            <div class="prompt-box">
+              <pre id="igCaptionPrompt">Write an Instagram caption and hashtag set for Adoption Academy for the following post:
+
+Post type: [carousel / reel / story]
+Topic: [INSERT TOPIC]
+
+Caption requirements:
+- Open with a hook — a question or surprising statement, no more than 10 words
+- 3–5 sentences of body copy, plain-language and empathetic
+- End with a soft engagement prompt (question to the audience)
+- No hard sell, no price mention
+- Under 200 words total
+
+Then provide:
+- A set of 15 hashtags mixing high/medium/low volume
+- A shorter 5-hashtag set for Stories
+
+Write 2 caption versions so I can choose the stronger one.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('igCaptionPrompt', this)">⎘ Copy Prompt</button>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Story Poll & Q&A Prompts (batch)</div>
+            <div class="prompt-box">
+              <pre id="igStoryPrompt">Write 10 Instagram Story prompts for Adoption Academy designed to generate audience engagement and surface what prospective adoptive parents are most confused or anxious about.
+
+Mix of formats:
+- Poll (yes/no or this/that)
+- Question sticker (open-ended)
+- Quiz (multiple choice with correct answer)
+
+Each prompt should:
+- Be emotionally resonant, not clinical
+- Touch on a real pain point or decision in the adoption process
+- Feel like it comes from a supportive community resource, not a brand
+
+Topics to draw from: home study, agency selection, costs, open vs closed adoption, birth father rights, timelines, failed matches, legal process, emotional readiness.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('igStoryPrompt', this)">⎘ Copy Prompt</button>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Reel Script (text-overlay, no face)</div>
+            <div class="prompt-box">
+              <pre id="igReelPrompt">Write an Instagram Reel script for Adoption Academy in text-overlay format. No face on camera, no voiceover required — all text appears on screen over stock video footage.
+
+Topic: [INSERT TOPIC]
+Reel length: 30–45 seconds
+Format: text overlay on stock video (suggest what type of stock footage to use)
+
+Script format:
+- Hook text (appears in first 2 seconds — must stop the scroll)
+- Screen 1–6: each screen shows for 4–6 seconds, one short bold statement per screen
+- Final screen: soft CTA — "Follow for more adoption guidance" or "Full guide at adoptionacademy.com"
+
+Also suggest: what stock video search terms to use in CapCut to find appropriate background footage.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('igReelPrompt', this)">⎘ Copy Prompt</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#000000"></div>
+          <div class="channel-name">X (Twitter)</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Write your first thread: "7 things about domestic adoption that most guides don't cover" — pull directly from the book's unique topics</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Post 3–4 standalone tweets per week: short punchy education, one fact or myth per tweet</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Engage genuinely in #adoption and #domesticadoption conversations — reply with useful information, not promotion</div><span class="check-tag tag-engage">Engage</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Publish one 6–8 tweet thread per week using one section of the book as the source material</div><span class="check-tag tag-content">Content</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">X AI Workflow — Threads, Standalone Tweets & Book Repurposing</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">⚡</div>
+              <div class="ai-tool-text"><strong>Weekly workflow:</strong> Claude writes one thread + 4 standalone tweets → paste into Buffer and schedule across the week → engage live with replies and hashtag conversations manually, no AI needed there.</div>
+            </div>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Write a Full Thread</div>
+            <div class="prompt-box">
+              <pre id="xThreadPrompt">Write a complete X (Twitter) thread for Adoption Academy on the following topic:
+
+Topic: [INSERT TOPIC]
+Thread length: 7–8 tweets
+
+Format rules:
+- Tweet 1 (hook): bold, punchy, stops the scroll — under 200 characters. Must make someone want to read on. No "thread" or "🧵" — just a great opening statement or question.
+- Tweets 2–6: one clear, specific point per tweet. Plain-language. Each tweet must stand alone and be under 280 characters.
+- Tweet 7 (summary): one sentence takeaway
+- Tweet 8 (CTA): soft — "Follow Adoption Academy for more domestic adoption guidance" or link to adoptionacademy.com
+
+Rules:
+- No promotional language until the final tweet
+- No fluffy filler — every tweet must contain a real, useful fact or insight
+- Warm and empathetic tone throughout
+- Never mention a price or product name in the body tweets</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('xThreadPrompt', this)">⎘ Copy Prompt</button>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Weekly Standalone Tweet Batch</div>
+            <div class="prompt-box">
+              <pre id="xTweetBatchPrompt">Write 5 standalone tweets for Adoption Academy for this week. Mix the following formats:
+- 2 myth-busters: "Most people think X — actually Y"
+- 1 surprising stat or fact about domestic adoption in the U.S.
+- 1 question to spark engagement from the adoption community
+- 1 practical tip a prospective adoptive parent can use today
+
+Rules:
+- Each tweet under 240 characters (leave room for replies and retweets)
+- Plain-language, warm, and direct
+- No promotional language or price mentions
+- Each tweet must be able to stand completely alone — no context needed
+
+Topics to draw from: home study, birth father rights, agency vs attorney, adoption costs, open vs closed adoption, failed adoptions, state law differences, adoption tax credit, scams to avoid.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('xTweetBatchPrompt', this)">⎘ Copy Prompt</button>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Repurpose Book Section into Thread</div>
+            <div class="prompt-box">
+              <pre id="xRepurposePrompt">Repurpose the following section of the Adoption Academy domestic adoption guide into a 7-tweet X (Twitter) thread. Extract the most valuable, surprising, or actionable insights and rewrite them as punchy, plain-language tweets.
+
+Rules:
+- Hook tweet must be strong enough to stop someone mid-scroll
+- Each body tweet = one key insight from the section, rewritten for X (not copy-pasted)
+- Final tweet = soft CTA to adoptionacademy.com
+- No jargon, no clinical language — write like a knowledgeable friend, not a textbook
+- Each tweet under 280 characters
+
+Book section to repurpose:
+[PASTE SECTION HERE]</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('xRepurposePrompt', this)">⎘ Copy Prompt</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#010101"></div>
+          <div class="channel-name">TikTok</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Post your first video: text-overlay explainer — "What is a home study and why does it take so long?" — no face, no voiceover required</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Post second video: myth-bust format — "Domestic adoption is NOT faster than international — here's the truth"</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Post third video: checklist format — "The home study checklist: what you actually need to prepare"</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Maintain 3 videos per week minimum — TikTok rewards volume; don't polish, prioritize consistency</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Use #adoptiontok #domesticadoption #adoptiveparents #homeready on every video</div><span class="check-tag tag-content">Content</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">TikTok AI Workflow — Video Scripts & CapCut Production</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">⚡</div>
+              <div class="ai-tool-text"><strong>Production workflow:</strong> Claude writes script screen-by-screen → open CapCut → search stock footage using Claude's suggested terms → layer text overlays → add captions → publish. Target under 30 min per video once you have the process down.</div>
+            </div>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Full Video Script (text-overlay, no face)</div>
+            <div class="prompt-box">
+              <pre id="ttScriptPrompt">Write a complete TikTok video script for Adoption Academy in text-overlay format. No face on camera. All content appears as text on screen over stock footage.
+
+Topic: [INSERT TOPIC]
+Video length: 30–45 seconds
+Format: [myth-buster / explainer / checklist / contrarian take]
+
+Script structure:
+- HOOK (0–2 sec): Bold text that stops the scroll. Under 8 words. No intro, no "hey guys" — straight to the point.
+- SCREENS 2–7: One screen per point, 4–6 seconds each. Short, bold statement. Plain-language. One idea per screen.
+- FINAL SCREEN: Soft CTA — "Follow for more adoption guidance" or "Full guide at adoptionacademy.com"
+
+Also provide:
+- CapCut stock footage search terms (2–3 options)
+- 7 hashtags to use: mix of #adoptiontok niche tags and broader reach tags
+- Suggested on-screen text color scheme using brand colors (navy #2e4057, orange #c4572a, teal #5aabab)</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('ttScriptPrompt', this)">⎘ Copy Prompt</button>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Weekly Batch of 3 Video Scripts</div>
+            <div class="prompt-box">
+              <pre id="ttBatchPrompt">Write 3 complete TikTok video scripts for Adoption Academy for this week. All in text-overlay format, no face on camera. Mix the formats across the 3 videos:
+- 1 myth-buster
+- 1 checklist or step-by-step
+- 1 contrarian take or surprising fact
+
+For each video provide:
+- Hook text (under 8 words, scroll-stopping)
+- Full screen-by-screen script (5–7 screens, one bold statement per screen)
+- CapCut stock footage search terms
+- 7 hashtags
+- Estimated video length
+
+Draw topics from: home study, birth father rights, adoption costs, agency vs attorney, open vs closed adoption, failed matches, adoption tax credit, scams, state law differences.
+
+Do not repeat topics used in previous weeks. Prioritize the most emotionally resonant or surprising angles.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('ttBatchPrompt', this)">⎘ Copy Prompt</button>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Turn Book Section into TikTok Script</div>
+            <div class="prompt-box">
+              <pre id="ttRepurposePrompt">Repurpose the following section of the Adoption Academy domestic adoption guide into a TikTok video script in text-overlay format.
+
+Rules:
+- Hook must be the most surprising or counterintuitive insight from the section
+- Each screen = one key point, rewritten for TikTok — punchy, plain-language, not academic
+- Maximum 7 screens at 5 seconds each (35 seconds total)
+- Final screen: soft CTA to adoptionacademy.com
+- Suggest CapCut stock footage search terms that match the content emotionally
+
+Book section to repurpose:
+[PASTE SECTION HERE]</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('ttRepurposePrompt', this)">⎘ Copy Prompt</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#ff0000"></div>
+          <div class="channel-name">YouTube Shorts</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Same day as each TikTok post — export watermark-free from CapCut and upload to YouTube Shorts</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Use a Claude-written SEO title, description, and tag set for every Short — never reuse TikTok captions verbatim</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Add adoptionacademy.com to every Short description</div><span class="check-tag tag-setup">Setup</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Create a "Domestic Adoption Guides" playlist and add every Short to it on upload</div><span class="check-tag tag-setup">Setup</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">YouTube Shorts AI Workflow — SEO Title, Description & Tags (per video)</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">⚡</div>
+              <div class="ai-tool-text"><strong>Per-video workflow:</strong> Once TikTok is posted, paste the video topic + TikTok script into Claude with the prompt below → copy the SEO output → upload to YouTube Shorts with the generated title, description, and tags. Adds 5 minutes per video, pays long-term dividends in search traffic.</div>
+            </div>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — YouTube Shorts SEO Package (use per video)</div>
+            <div class="prompt-box">
+              <pre id="ytSeoPrompt">Write a complete YouTube Shorts SEO package for Adoption Academy for the following video:
+
+Video topic: [INSERT TOPIC]
+Video script summary: [PASTE SCRIPT OR KEY POINTS]
+
+Provide:
+1. SEO Title (under 60 characters, front-load the primary keyword, compelling enough to click)
+2. Description (150–200 words, keyword-rich, plain-language, include adoptionacademy.com, end with subscribe CTA)
+3. Tags (20 tags: mix of exact-match keywords, broad adoption terms, and long-tail phrases a prospective adoptive parent would search)
+4. Suggested category: Education
+5. Hashtags to add at the end of description (5 max for YouTube): #Shorts + 4 adoption-specific tags
+
+Primary keywords to weave in where natural: domestic adoption, home study, adoptive parents, adoption process, [ADD TOPIC-SPECIFIC KEYWORD]</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('ytSeoPrompt', this)">⎘ Copy Prompt</button>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase">
+    <div class="phase-header" onclick="togglePhase(this)">
+      <div class="phase-icon" style="background:rgba(46,64,87,0.15)">📈</div>
+      <div class="phase-title-group">
+        <div class="phase-title">Phase 3 — Build Momentum</div>
+        <div class="phase-subtitle">Days 31–60 · Optimize what's working, repurpose across channels</div>
+      </div>
+      <div class="phase-meta">
+        <span class="phase-count" id="count-p3"></span>
+        <span class="phase-chevron">▼</span>
+      </div>
+    </div>
+    <div class="phase-body">
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#ff6314"></div>
+          <div class="channel-name">Reddit</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Review your top 5 most upvoted Reddit answers — repurpose each one into an Instagram carousel or X thread</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Expand into r/NewParents and r/Parenting with answers that bridge infertility and adoption journeys</div><span class="check-tag tag-engage">Engage</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Post a second "resource share" post — this time framed around a specific topic (e.g., "I put together a breakdown of birth father rights by state")</div><span class="check-tag tag-content">Content</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">Reddit AI Workflow — Repurposing Top Answers</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+            <div class="ai-section-label">Claude Prompt — Repurpose Reddit Answer to Other Channels</div>
+            <div class="prompt-box">
+              <pre id="redditRepurposePrompt">Below is a Reddit answer I posted about domestic adoption that performed well (upvotes/replies). Please repurpose it into three formats:
+
+1. Instagram carousel outline (6 slides, each with a short headline and 1–2 sentences of body copy, branded for Adoption Academy — navy, orange, teal)
+2. X (Twitter) thread (6–8 tweets, punchy and educational, no promotional language)
+3. Pinterest pin description (150–200 characters, keyword-rich, written like a search query)
+
+Keep the tone warm, plain-language, and empathetic. Never mention a product or price.
+
+Original Reddit answer:
+[PASTE REDDIT ANSWER HERE]</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('redditRepurposePrompt', this)">⎘ Copy Prompt</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#e60023"></div>
+          <div class="channel-name">Pinterest</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Check Pinterest Analytics — identify your top 3 pins by saves and outbound clicks</div><span class="check-tag tag-track">Track</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Create 3 new pins on the same topics as your top performers — different visual treatment, same subject matter</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Add 10 more pins to reach a total of 25+ published — maintain 3–4 per week cadence</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Test one "step-by-step" format pin: "How to choose an adoption agency: 6-step checklist"</div><span class="check-tag tag-content">Content</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">Pinterest AI Workflow — Repurpose Book Content into Pins</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">📖</div>
+              <div class="ai-tool-text"><strong>By Phase 3</strong> you have analytics data. Use Claude to double down on what's working — repurpose top-performing topics into new pin formats, and mine the book for untapped content.</div>
+            </div>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Repurpose Book Section into 5 Pin Concepts</div>
+            <div class="prompt-box">
+              <pre id="pinterestRepurposePrompt">I have a section of my domestic adoption guide that I want to turn into Pinterest pin content. Repurpose the content below into 5 distinct Pinterest pin concepts for Adoption Academy.
+
+For each pin concept provide:
+1. Pin title (under 60 characters, search-optimized)
+2. Pin format (checklist / comparison / infographic / step-by-step / myth-buster)
+3. Key content points to show on the pin (3–6 bullet points)
+4. Pinterest board it belongs to
+5. A 200-character keyword-rich pin description
+
+Brand tone: warm, plain-language, empathetic. No promotional language.
+
+Book section to repurpose:
+[PASTE BOOK SECTION OR SUMMARY HERE]</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('pinterestRepurposePrompt', this)">⎘ Copy Prompt</button>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Analyze Top Pins & Suggest Next Batch</div>
+            <div class="prompt-box">
+              <pre id="pinterestAnalyzePrompt">Below are my top-performing Pinterest pins for Adoption Academy by saves and clicks. Analyze what they have in common and suggest the next batch of 10 pin topics that follow the same pattern.
+
+Top pins:
+1. [PIN TITLE] — [SAVES] saves, [CLICKS] clicks
+2. [PIN TITLE] — [SAVES] saves, [CLICKS] clicks
+3. [PIN TITLE] — [SAVES] saves, [CLICKS] clicks
+
+For each suggested pin include:
+- Title
+- Format type
+- Why it should perform well based on the pattern above
+- Which board it belongs to</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('pinterestAnalyzePrompt', this)">⎘ Copy Prompt</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#e1306c"></div>
+          <div class="channel-name">Instagram</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Review Instagram Insights — identify your highest-save post and create 2 similar pieces</div><span class="check-tag tag-track">Track</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Run a Story Q&A: "Ask me anything about domestic adoption" — answer each question in a Story slide or a new carousel</div><span class="check-tag tag-engage">Engage</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Test a direct CTA post: a clean graphic showing the book cover with price, "Less than one hour with an adoption attorney"</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Maintain 4 posts per week — never drop below this during the 90-day test</div><span class="check-tag tag-content">Content</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">Instagram AI Workflow — Analyze & Scale What's Working</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">📊</div>
+              <div class="ai-tool-text"><strong>By Phase 3</strong> you have real data from Instagram Insights. Use Claude to interpret what's working and generate the next content batch based on actual performance — not guesswork.</div>
+            </div>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Analyze Top Posts & Plan Next Month</div>
+            <div class="prompt-box">
+              <pre id="igAnalyzePrompt">Below are my top Instagram posts for Adoption Academy ranked by saves. Analyze what they have in common — topic, format, hook style, tone — and suggest the next 8 posts for the coming month.
+
+Top posts:
+1. [POST DESCRIPTION] — [SAVES] saves, [REACH] reach
+2. [POST DESCRIPTION] — [SAVES] saves, [REACH] reach
+3. [POST DESCRIPTION] — [SAVES] saves, [REACH] reach
+
+For each suggested post provide:
+- Topic
+- Format (carousel / reel / story)
+- Hook line (first words of caption)
+- Why it should perform based on the pattern above
+
+Also flag any content gaps — topics my audience clearly cares about that I haven't covered yet.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('igAnalyzePrompt', this)">⎘ Copy Prompt</button>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Turn Story Q&A Responses into Carousel</div>
+            <div class="prompt-box">
+              <pre id="igQACarouselPrompt">I ran an Instagram Story Q&A for Adoption Academy asking "What's your biggest question about domestic adoption?" Below are the responses I received. Turn these into a carousel post that answers the top questions.
+
+Story responses:
+[PASTE RESPONSES HERE]
+
+Carousel format:
+- Cover slide: "You asked. We answered. Your top domestic adoption questions."
+- One slide per question (up to 6) with a clear, plain-language answer
+- Final slide: soft CTA to adoptionacademy.com
+
+Tone: warm, empathetic, never condescending. These are real people going through something emotionally hard.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('igQACarouselPrompt', this)">⎘ Copy Prompt</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#000000"></div>
+          <div class="channel-name">X (Twitter)</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Review thread performance — which thread got the most replies, retweets, or profile visits?</div><span class="check-tag tag-track">Track</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Write a thread on the adoption tax credit — this is a high-search, underserved topic on X</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Engage when adoption-related news surfaces — policy changes, tax credit updates, state law changes — add informed commentary</div><span class="check-tag tag-engage">Engage</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">X AI Workflow — Analyze Performance & Scale Top Threads</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">📊</div>
+              <div class="ai-tool-text"><strong>By Phase 3</strong> you have thread and tweet performance data from X Analytics. Use Claude to identify patterns in what's resonating and generate the next month of content based on real signal.</div>
+            </div>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Analyze Top Threads & Plan Next Month</div>
+            <div class="prompt-box">
+              <pre id="xAnalyzePrompt">Below are my top-performing X threads for Adoption Academy ranked by impressions and replies. Analyze what they have in common — topic, hook style, structure, tone — and suggest the next 4 threads for the coming month.
+
+Top threads:
+1. [THREAD TOPIC + HOOK TWEET] — [IMPRESSIONS] impressions, [REPLIES] replies
+2. [THREAD TOPIC + HOOK TWEET] — [IMPRESSIONS] impressions, [REPLIES] replies
+3. [THREAD TOPIC + HOOK TWEET] — [IMPRESSIONS] impressions, [REPLIES] replies
+
+For each suggested thread provide:
+- Topic
+- Proposed hook tweet (under 200 characters)
+- Why it should perform based on the pattern above
+- Best day/time to post based on adoption community behavior
+
+Also identify: which standalone tweet format (myth-buster / stat / question / tip) is getting the most engagement so I can weight my weekly batch accordingly.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('xAnalyzePrompt', this)">⎘ Copy Prompt</button>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — News Reaction Tweet</div>
+            <div class="prompt-box">
+              <pre id="xNewsPrompt">Write a reaction tweet for Adoption Academy responding to the following adoption-related news or policy update. The tweet should:
+- Add genuine informed perspective, not just repeat the news
+- Be relevant to prospective adoptive parents specifically
+- Under 240 characters
+- Warm and plain-language — not political or alarmist
+- End with a question to invite community response
+
+News/update to react to:
+[PASTE HEADLINE OR SUMMARY HERE]</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('xNewsPrompt', this)">⎘ Copy Prompt</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#010101"></div>
+          <div class="channel-name">TikTok</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Review TikTok analytics — identify your highest-view and highest-share video</div><span class="check-tag tag-track">Track</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Create 3 more videos in the same format as your best performer — same structure, different topic</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Try a "things your adoption attorney won't tell you" hook — contrarian framing consistently performs in this niche</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Read every comment on your videos — log every question asked; these are your next 20 content ideas and your course curriculum</div><span class="check-tag tag-track">Track</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">TikTok AI Workflow — Analyze Performance & Mine Comments</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">📊</div>
+              <div class="ai-tool-text"><strong>By Phase 3</strong> TikTok comments are your most valuable asset — they're unfiltered, real questions from your exact audience. Use Claude to process them in bulk and turn them into your next content batch and course curriculum signal.</div>
+            </div>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Analyze Comments & Extract Content Ideas</div>
+            <div class="prompt-box">
+              <pre id="ttCommentsPrompt">Below are comments from my Adoption Academy TikTok videos. Analyze them and extract:
+
+1. Top 10 questions being asked — ranked by how often the same question appears in different forms
+2. Top 5 emotional pain points or anxieties expressed
+3. Top 5 misconceptions or wrong assumptions people have
+4. 10 new video concepts directly inspired by these comments — include hook text for each
+5. 3 topics that appear repeatedly but that I haven't made a video on yet — these are content gaps
+
+Comments:
+[PASTE COMMENTS HERE]
+
+Also flag: any comments that suggest what a paid course or app feature should include — these are proof-of-concept signals for the next phase of Adoption Academy.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('ttCommentsPrompt', this)">⎘ Copy Prompt</button>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Analyze Top Videos & Plan Next Batch</div>
+            <div class="prompt-box">
+              <pre id="ttAnalyzePrompt">Below are my top-performing TikTok videos for Adoption Academy ranked by views and shares. Analyze what they have in common — hook style, format, topic type, screen count, tone — and suggest the next 6 videos.
+
+Top videos:
+1. [VIDEO DESCRIPTION + HOOK TEXT] — [VIEWS] views, [SHARES] shares
+2. [VIDEO DESCRIPTION + HOOK TEXT] — [VIEWS] views, [SHARES] shares
+3. [VIDEO DESCRIPTION + HOOK TEXT] — [VIEWS] views, [SHARES] shares
+
+For each suggested video provide:
+- Hook text (under 8 words)
+- Format type
+- Why it should perform based on the pattern above
+- CapCut stock footage search terms
+
+Also identify: which hook style (question / shocking stat / myth-buster / contrarian) is performing best so I can weight future scripts accordingly.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('ttAnalyzePrompt', this)">⎘ Copy Prompt</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#ff0000"></div>
+          <div class="channel-name">YouTube Shorts</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Check YouTube Studio analytics — which Shorts are getting the most views from search vs. the Shorts feed</div><span class="check-tag tag-track">Track</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Identify your top 3 Shorts by search-driven views — these topics have genuine YouTube search demand</div><span class="check-tag tag-track">Track</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">For each top search-driven Short, use Claude to write a deeper SEO-optimized title and description to improve ranking</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Check which search terms are bringing viewers in via YouTube Search in Studio Analytics — add those terms to future video tags</div><span class="check-tag tag-track">Track</span></div>
+        </div>
+
+        <div class="ai-panel">
+          <div class="ai-panel-header" onclick="toggleAI(this)">
+            <span class="ai-badge">AI</span>
+            <span class="ai-panel-label">YouTube Shorts AI Workflow — Search Analytics & SEO Optimization</span>
+            <span class="ai-panel-chevron">▶</span>
+          </div>
+          <div class="ai-panel-body">
+
+            <div class="ai-tool-row">
+              <div class="ai-tool-icon">🔍</div>
+              <div class="ai-tool-text"><strong>By Phase 3</strong> YouTube Studio shows you exactly which search terms people used to find your Shorts. This is gold — it tells you what adoption questions people are actively searching on YouTube, which may differ from TikTok. Feed these terms back into Claude for future SEO packages.</div>
+            </div>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Refresh SEO on Top Shorts</div>
+            <div class="prompt-box">
+              <pre id="ytRefreshPrompt">I have a YouTube Short for Adoption Academy that is getting search-driven views and I want to optimize its SEO to rank higher. 
+
+Current title: [CURRENT TITLE]
+Current description: [CURRENT DESCRIPTION]
+Search terms bringing viewers in (from YouTube Studio): [PASTE SEARCH TERMS]
+Views: [VIEWS] | Click-through rate: [CTR]%
+
+Please rewrite:
+1. Optimized title (under 60 characters, front-load the top search term)
+2. Optimized description (150–200 words, naturally weave in all the search terms people are using, include adoptionacademy.com)
+3. Updated tag list (20 tags incorporating the actual search terms from Studio)
+
+Goal: improve CTR and ranking for the search terms already driving traffic.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('ytRefreshPrompt', this)">⎘ Copy Prompt</button>
+
+            <hr class="ai-divider">
+            <div class="ai-section-label">Claude Prompt — Identify High-Search YouTube Topics to Prioritize</div>
+            <div class="prompt-box">
+              <pre id="ytTopicsPrompt">Below are the YouTube search terms that have been bringing viewers to my Adoption Academy Shorts. Based on these terms, suggest 10 future TikTok/YouTube Short topics that are optimized for YouTube search demand.
+
+Search terms bringing in viewers:
+[PASTE SEARCH TERMS FROM YOUTUBE STUDIO]
+
+For each suggested topic provide:
+- Video title optimized for YouTube search (under 60 characters)
+- Why this topic has search demand based on the terms above
+- Hook text for the TikTok/Short version (under 8 words)
+- Primary keyword to front-load in the YouTube title
+
+Rank by estimated search volume potential.</pre>
+            </div>
+            <button class="copy-btn" onclick="copyPrompt('ytTopicsPrompt', this)">⎘ Copy Prompt</button>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="phase">
+    <div class="phase-header" onclick="togglePhase(this)">
+      <div class="phase-icon" style="background:rgba(90,171,171,0.2)">🎯</div>
+      <div class="phase-title-group">
+        <div class="phase-title">Phase 4 — Amplify & Validate</div>
+        <div class="phase-subtitle">Days 61–90 · Double down on what's working, extract proof-of-concept signal</div>
+      </div>
+      <div class="phase-meta">
+        <span class="phase-count" id="count-p4"></span>
+        <span class="phase-chevron">▼</span>
+      </div>
+    </div>
+    <div class="phase-body">
+
+      <div class="channel-section">
+        <div class="channel-header" onclick="toggleChannel(this)">
+          <div class="channel-dot" style="background:#5aabab"></div>
+          <div class="channel-name">All Channels — Repurposing Engine</div>
+          <span class="channel-progress"></span>
+          <span class="channel-chevron">▶</span>
+        </div>
+        <div class="channel-items">
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Identify your single best-performing piece of content across all six channels</div><span class="check-tag tag-track">Track</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Repurpose that topic into all six formats: Reddit answer → Instagram carousel → X thread → Pinterest pin → TikTok video → YouTube Short</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Repeat this repurposing process for your top 5 topics — one idea, six channels</div><span class="check-tag tag-content">Content</span></div>
+          <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><div class="check-text">Double the posting frequency on your highest-converting channel only</div><span class="check-tag tag-content">Content</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="completion-banner" id="completionBanner">
+    🎉 Strategy Complete
+    <p>All steps checked. You have everything you need to validate Adoption Academy.</p>
+  </div>
+
+  <button class="reset-btn" onclick="resetAll()">↺ Reset all checkboxes</button>
+
+</main>
+
+<script>
+  // In-memory state only — no localStorage
+  function toggleAI(header) {
+    header.classList.toggle('open');
+    const body = header.nextElementSibling;
+    body.classList.toggle('open');
+  }
+
+  function safeCopy(text, onSuccess) {
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(onSuccess).catch(() => fallbackCopy(text, onSuccess));
+      } else {
+        fallbackCopy(text, onSuccess);
+      }
+    } catch(e) {
+      fallbackCopy(text, onSuccess);
+    }
+  }
+
+  function fallbackCopy(text, onSuccess) {
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      if (onSuccess) onSuccess();
+    } catch(e) {}
+  }
+
+  function copyPrompt(id, btn) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    safeCopy(el.textContent, () => {
+      const orig = btn.textContent;
+      btn.textContent = '✓ Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+
+  function copyChip(chip) {
+    const orig = chip.textContent;
+    safeCopy(orig, () => {
+      chip.classList.add('copied');
+      chip.textContent = '✓ ' + orig;
+      setTimeout(() => { chip.textContent = orig; chip.classList.remove('copied'); }, 1500);
+    });
+  }
+
+  function toggle(item) {
+    item.classList.toggle('done');
+    updateProgress();
+  }
+
+  function togglePhase(header) {
+    header.classList.toggle('collapsed');
+    const body = header.nextElementSibling;
+    body.style.display = header.classList.contains('collapsed') ? 'none' : '';
+  }
+
+  function toggleChannel(header) {
+    header.classList.toggle('open');
+    const items = header.nextElementSibling;
+    items.classList.toggle('open');
+    updateChannelProgress(header);
+  }
+
+  function updateChannelProgress(header) {
+    const section = header.parentElement;
+    const items = section.querySelectorAll('.check-item');
+    const done = section.querySelectorAll('.check-item.done');
+    const prog = header.querySelector('.channel-progress');
+    if (prog) prog.textContent = `${done.length}/${items.length}`;
+  }
+
+  function updateProgress() {
+    const all = document.querySelectorAll('.check-item');
+    const done = document.querySelectorAll('.check-item.done');
+    const pct = all.length ? (done.length / all.length) * 100 : 0;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressCount').textContent = `${done.length} / ${all.length}`;
+
+    document.querySelectorAll('.phase').forEach((phase) => {
+      const phaseItems = phase.querySelectorAll('.check-item');
+      const phaseDone = phase.querySelectorAll('.check-item.done');
+      const countEl = phase.querySelector('.phase-count');
+      if (countEl) countEl.textContent = `${phaseDone.length}/${phaseItems.length}`;
+    });
+
+    document.querySelectorAll('.channel-header').forEach(h => updateChannelProgress(h));
+
+    const banner = document.getElementById('completionBanner');
+    if (banner) banner.style.display = done.length === all.length && all.length > 0 ? 'block' : 'none';
+  }
+
+  function resetAll() {
+    if (!confirm('Reset all checkboxes?')) return;
+    document.querySelectorAll('.check-item.done').forEach(i => i.classList.remove('done'));
+    updateProgress();
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    updateProgress();
+  });
+</script>
+</body>
+</html>
